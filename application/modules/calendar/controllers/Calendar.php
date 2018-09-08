@@ -13,6 +13,7 @@ class Calendar extends MX_Controller {
 	public function index() 
 	{
 		$data_cal = $this->modeldb->get_list($this->table);
+		date_default_timezone_set("Asia/Bangkok");
 		$cal = array();
 		foreach ($data_cal as $key => $d_cal) {
 			$cal[] = array(
