@@ -23,6 +23,24 @@
     </li>
     <?php // make_menu_left()?>
     <li class="nav-item">
+      <a class="nav-link" href="<?php echo site_url('dashboard') ?>">
+        <i class="menu-icon mdi mdi-monitor"></i>
+        <span class="menu-title">Dashboard</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="<?php echo site_url('calendar') ?>">
+        <i class="menu-icon mdi mdi-calendar"></i>
+        <span class="menu-title">Calendar</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="<?php echo site_url('ruangan') ?>">
+        <i class="menu-icon mdi mdi-home-account"></i>
+        <span class="menu-title">Ruangan</span>
+      </a>
+    </li>
+    <li class="nav-item">
       <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
         <i class="menu-icon mdi mdi-content-copy"></i>
         <span class="menu-title">Basic UI Elements</span>
@@ -39,5 +57,6 @@
         </ul>
       </div>
     </li>
+    
   </ul>
 </nav>

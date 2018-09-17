@@ -7,7 +7,10 @@ class Calendar extends MX_Controller {
 	{
 		parent::__construct();
 		$this->table 		= 'd004';
-		$this->load->model('CalendarModel', 'modeldb'); 
+		$this->load->model('CalendarModel', 'modeldb');
+		if($this->session->userdata('status') != '1'){
+			redirect(base_url('/user'));
+		}
 	}
 
 	public function index() 

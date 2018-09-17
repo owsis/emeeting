@@ -69,7 +69,7 @@ if (!empty($additional_assets_css)) {
         <ul class="navbar-nav navbar-nav-left header-links d-none d-md-flex">
         </ul>
         <ul class="navbar-nav navbar-nav-right">
-          <li class="nav-item dropdown">
+          <!-- <li class="nav-item dropdown">
             <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
               <i class="mdi mdi-file-document-box"></i>
               <span class="count">7</span>
@@ -178,7 +178,7 @@ if (!empty($additional_assets_css)) {
                 </div>
               </a>
             </div>
-          </li>
+          </li> -->
           <li class="nav-item dropdown d-none d-xl-inline-block">
             <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
             <span class="profile-text">Hello, <?php // echo $this->session->userdata('nama') ?></span>
@@ -207,7 +207,7 @@ if (!empty($additional_assets_css)) {
               <a class="dropdown-item">
                 Check Inbox
               </a>
-              <a class="dropdown-item" href="<?php echo site_url('authentication/logout') ?>">
+              <a class="dropdown-item" href="<?=site_url('user/logout')?>">
                 Sign Out
               </a>
             </div>

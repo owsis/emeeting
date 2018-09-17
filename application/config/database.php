@@ -78,6 +78,7 @@ $db['default'] = array(
 	'hostname' => 'localhost',
 	'username' => 'root',
 	'password' => '3UKzcF6x69~W',
+	// 'password' => '',
 	'database' => 'emeeting',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
