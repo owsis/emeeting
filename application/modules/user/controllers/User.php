@@ -12,7 +12,7 @@ class User extends MX_Controller {
 
 	public function index()
 	{
-		if($this->session->userdata('status') == 1){
+		if($this->session->userdata('status') == '1'){
 			redirect(base_url('/dashboard'));
 		}
 		$this->load->view('user-login');
@@ -39,7 +39,7 @@ class User extends MX_Controller {
 		// echo $result->results[0]->nip;
 		// echo $result->status;
 
-		if ($result->status == 1) {
+		if ($result->status == '1') {
 
 			$data_session = array(
 				'status' => $result->status,
