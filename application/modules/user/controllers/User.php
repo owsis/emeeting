@@ -34,7 +34,7 @@ class User extends MX_Controller {
 		$urlLogin = 'http://36.66.117.30/simpeg/api/list_employee/';
 
 		$login = $this->postCURL($urlLogin, $data);
-		$result = json_decode($login);
+		$result = json_decode($login, true);
 
 		echo $result->results[0]->nip;
 		echo $result->status;
