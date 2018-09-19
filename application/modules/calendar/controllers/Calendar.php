@@ -8,7 +8,7 @@ class Calendar extends MX_Controller {
 		parent::__construct();
 		$this->table 		= 'd004';
 		$this->load->model('CalendarModel', 'modeldb');
-		if($this->session->userdata('status') != '1'){
+		if($this->session->userdata('status') == ''){
 			redirect(base_url('/user'));
 		}
 	}

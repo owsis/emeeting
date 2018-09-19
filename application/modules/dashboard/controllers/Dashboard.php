@@ -9,7 +9,7 @@ class Dashboard extends MX_Controller {
 		$this->table = 'd003';
 		// $this->load->model('RuanganModel', 'ruangandb');
 		// $this->load->helper('form');
-		if($this->session->userdata('status') != '1'){
+		if($this->session->userdata('status') == ''){
 			redirect(base_url('/user'));
 		}
 	}

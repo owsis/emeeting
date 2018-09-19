@@ -1,6 +1,6 @@
 <?php echo $page_title ?>
 
-<div id="calendar"></div>
+<div id="calendar" style="width: 900px; margin: 40px auto;"></div>
 
 <div class="modal fade" id="create_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 	<div class="modal-dialog" role="document">
@@ -35,12 +35,12 @@
 						<div class="col-sm-10">
 							<select name="color" class="form-control">
 								<option value="">Choose</option>
-								<option style="color:#0071c5;" value="#0071c5">&#9724; Dark blue</option>
+								<option style="color:#3F51B5;" value="#3F51B5">&#9724; Indigo</option>
 								<option style="color:#40E0D0;" value="#40E0D0">&#9724; Turquoise</option>
-								<option style="color:#008000;" value="#008000">&#9724; Green</option>                       
-								<option style="color:#FFD700;" value="#FFD700">&#9724; Yellow</option>
-								<option style="color:#FF8C00;" value="#FF8C00">&#9724; Orange</option>
-								<option style="color:#FF0000;" value="#FF0000">&#9724; Red</option>
+								<option style="color:#009688;" value="#009688">&#9724; Teal</option>                       
+								<option style="color:#FFEB3B;" value="#FFEB3B">&#9724; Yellow</option>
+								<option style="color:#FF9800;" value="#FF9800">&#9724; Orange</option>
+								<option style="color:#F44336;" value="#F44336">&#9724; Red</option>
 								<option style="color:#000;" value="#000">&#9724; Black</option>
 							</select>
 						</div>

@@ -18,7 +18,7 @@
 		var data_js = <?php echo $get_data ?>;
 
 		$('#calendar').fullCalendar({
-			height: 500,
+			themeSystem: 'bootstrap4',
 			header: {
 				left: 'month,agendaWeek,agendaDay',
 				center: 'title',
@@ -26,12 +26,22 @@
 			},
 			editable: true,
 			selectable: true,
-			select: function(start, end) {
+			selectHelper: false,
+			select: function(start, end, allDay) {
+
+				if( start.isBefore( moment() ) ) {
+
+					$('#calendar').fullCalendar('unselect');
+					return false;
+
+				}
+
+				$('#create_modal').modal('show');
 				$('#create_modal input[name=start]').val(moment(start).format('YYYY-MM-DD HH:mm:ss'));
 				$('#create_modal input[name=end]').val(moment(end).format('YYYY-MM-DD HH:mm:ss'));
-				$('#create_modal').modal('show');
 				save();
 				$('#calendar').fullCalendar('unselect');
+				
 			},
 			events: data_js,
 			eventClick: function(event, element) {

@@ -10,14 +10,16 @@ class Ruangan extends MX_Controller {
 		$this->load->model('RuanganModel', 'ruangandb');
 		$this->load->helper('form');
 
-		if($this->session->userdata('status') != '1'){
+		if($this->session->userdata('status') == ''){
 			redirect(base_url('/user'));
 		}
 	}
 
 	public function index()
 	{
-		$data['content_view'] = $this->load->view('ruangan', '', TRUE);
+		$data_ruangan['ruangan'] = $this->ruangandb->get_ruangan($this->table);
+
+		$data['content_view'] = $this->load->view('ruangan', $data_ruangan, TRUE);
 
 		$data['menu'] = $this->load->view('main_layout/_base_sidebar', '', TRUE);
 

@@ -30,9 +30,9 @@
             <div class="auto-form-wrapper">
               <form action="<?=site_url('user/login')?>" method="POST">
                 <div class="form-group">
-                  <label class="label">No. NIK</label>
+                  <label class="label">No. NIP</label>
                   <div class="input-group">
-                    <input type="text" class="form-control" name="nik" placeholder="NIK" autocomplete="off">
+                    <input type="text" class="form-control" name="nip" placeholder="NIP" autocomplete="off">
                     <div class="input-group-append">
                       <span class="input-group-text">
                         <i class="mdi mdi-check-circle-outline"></i>
