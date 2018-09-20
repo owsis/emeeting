@@ -7,6 +7,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Star Admin Premium Bootstrap Admin Dashboard Template</title>
+
+  <?php if (in_array($_SERVER['REMOTE_ADDR'], array('127.0.0.1', '::1'))) {?>
+  <?php } else { ?>
+  <?php } ?>
   <!-- plugins:css -->
   <link rel="stylesheet" href="<?=base_url('assets/vendors/iconfonts/mdi/css/materialdesignicons.min.css')?>">
   <link rel="stylesheet" href="<?=base_url('assets/vendors/iconfonts/puse-icons-feather/feather.css')?>">
