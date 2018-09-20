@@ -36,27 +36,27 @@ class User extends MX_Controller {
 		$login = $this->postCURL($urlLogin, $data);
 		$result = json_decode($login);
 
-		echo $result->results[0]->nip;
-		echo $result->status;
+		// echo $result->results[0]->nip;
+		// echo $result->status;
 
-		// if ($result->status == '1') {
+		if ($result->status == '1') {
 
-		// 	$data_session = array(
-		// 		'status' => $result->status,
-		// 		'nip' => $result->results[0]->nip,
-		// 		'namapeg' => $result->results[0]->namapeg
-		// 	);
+			$data_session = array(
+				'status' => $result->status,
+				'nip' => $result->results[0]->nip,
+				'namapeg' => $result->results[0]->namapeg
+			);
 
-		// 	$this->session->set_userdata($data_session);
-		// 	redirect(base_url('/dashboard'),'refresh');
+			$this->session->set_userdata($data_session);
+			redirect(base_url('/dashboard'),'refresh');
 
-		// } else {
+		} else {
 
-		// 	$message = "Username and/or Password incorrect.\\nTry again.";
-		// 	echo "<script type='text/javascript'>alert('$message');</script>";
-		// 	// redirect(base_url('/user'),'refresh');
+			$message = "Username and/or Password incorrect.\\nTry again.";
+			echo "<script type='text/javascript'>alert('$message');</script>";
+			redirect(base_url('/user'),'refresh');
 			
-		// }
+		}
 		
 
 		// $nik = $this->input->post('nik');
