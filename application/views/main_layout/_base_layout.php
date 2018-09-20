@@ -123,8 +123,8 @@ if (!empty($additional_assets_css)) {
 								</div>
 							</a>
 						</div>
-					</li>
-					<li class="nav-item dropdown">
+					</li> -->
+					<!-- <li class="nav-item dropdown">
 						<a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
 							<i class="mdi mdi-bell"></i>
 							<span class="count">4</span>
@@ -185,7 +185,10 @@ if (!empty($additional_assets_css)) {
 							<img class="img-xs rounded-circle" src="<?=base_url("assets/images/faces/face1.jpg")?>" alt="Profile image">
 						</a>
 						<div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
-							<a class="dropdown-item p-0">
+							<a class="dropdown-item">
+								<p class="mb-0 font-weight-normal float-left">User Account</p>
+							</a>
+							<!-- <a class="dropdown-item p-0">
 								<div class="d-flex border-bottom">
 									<div class="py-3 px-4 d-flex align-items-center justify-content-center">
 										<i class="mdi mdi-bookmark-plus-outline mr-0 text-gray"></i>
@@ -197,7 +200,7 @@ if (!empty($additional_assets_css)) {
 										<i class="mdi mdi-alarm-check mr-0 text-gray"></i>
 									</div>
 								</div>
-							</a>
+							</a> -->
 							<!-- <a class="dropdown-item mt-2">
 								Manage Accounts
 							</a>
@@ -208,7 +211,7 @@ if (!empty($additional_assets_css)) {
 								Check Inbox
 							</a> -->
 							<a class="dropdown-item" href="<?=site_url('user/logout')?>">
-								Sign Out
+								<h6 class="preview-subject font-weight-medium text-dark">Sign Out</h6>
 							</a>
 						</div>
 					</li>
