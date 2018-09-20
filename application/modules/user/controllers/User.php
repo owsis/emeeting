@@ -31,8 +31,11 @@ class User extends MX_Controller {
 			'key' =>  $this->input->post('password')
 		);
 
-		// $urlLogin = 'http://127.0.0.1/simpeg/api/list_employee/';
-		$urlLogin = 'http://36.66.117.30/simpeg/api/list_employee/';
+		if (in_array($_SERVER['REMOTE_ADDR'], array('127.0.0.1', '::1'))) {
+			$urlLogin = 'http://36.66.117.30/simpeg/api/list_employee/';
+		} else {
+			$urlLogin = 'http://127.0.0.1/simpeg/api/list_employee/';
+		}
 
 		$login = $this->postCURL($urlLogin, $data);
 		$result = json_decode($login);
