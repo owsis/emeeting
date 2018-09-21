@@ -58,7 +58,7 @@ class User extends MX_Controller {
 
 			$message = "Username and/or Password incorrect.\\nTry again.";
 			echo "<script type='text/javascript'>alert('$message');</script>";
-			redirect(base_url('/user'),'refresh');
+			// redirect(base_url('/user'),'refresh');
 			
 		}
 		

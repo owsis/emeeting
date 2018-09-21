@@ -58,6 +58,7 @@ class Calendar extends MX_Controller {
 		);
 		$data['additional_assets_js'] = array(
 			'js/fullcalendar.min.js',
+			'js/fullcalendar-id.js',
 			'vendors/bootstrap-datepicker/js/bootstrap-datetimepicker.min.js'
 		);
 

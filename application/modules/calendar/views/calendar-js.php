@@ -18,6 +18,7 @@
 		var data_js = <?php echo $get_data ?>;
 
 		$('#calendar').fullCalendar({
+			lang: 'id',
 			themeSystem: 'bootstrap4',
 			header: {
 				left: 'month,agendaWeek,agendaDay',

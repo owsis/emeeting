@@ -711,10 +711,10 @@ section.section {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  background-color: #ffffff;
+  background-repeat: no-repeat;
   background-position: 50% 50%;
   background-attachment: initial;
-  background-repeat: no-repeat;
-  background-color: #ffffff;
 }
 .header-section-1 .logo-link {
   max-width: 50px;
