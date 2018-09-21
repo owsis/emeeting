@@ -228,7 +228,7 @@
 
 		<!-- Start: Header Section
 			================================ -->
-			<section class="features-section-4 section bg-1 header-js section" id="header">
+			<section class="features-section-4 section header-js section" id="header" style="background: url('<?=base_url("assets/images/ruangan/ditjen_pkp2trans_lt1.jpg")?>'); -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; background-color: #ffffff; background-repeat: no-repeat; background-position: 50% 50%; background-attachment: initial;">
 				<div class="overlay-color">
 					<div class="container">
 						<div class="row section-separator light-text">
