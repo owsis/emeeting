@@ -9,25 +9,28 @@ class RuanganModel extends CI_Model
 		return $this->db->get($table)->result();
 	}
 
-	public function get_list($table, $where = FALSE )
+	public function get_last($table)
 	{
-		if ($where) {
-			$this->db->where($where);
-		}
+		return $this->db->order_by('id', 'desc')->limit(1)->get($table)->row();
+	}
+
+	public function get_ruangan_where($table, $where, $value_where)
+	{
+		$this->db->where($where, $value_where);
+		return $this->db->get($table)->result();
+	}
+
+	public function get_jadwal($table, $where = null )
+	{
+		$arr = array(
+			'code_r' => $where
+		);
+		$this->db->where('code_r', $where);
 		return $this->db->get($table)->result();
 	}	
 
 	public function insert($table, $param)
 	{
-		$param['code_r']      = $data['code_r'];
-		$param['name_r']      = $data['name_r'];
-		$param['img_r']       = $data['img_r'];
-		$param['lantai_r']    = $data['lantai_r'];
-		$param['kapasitas_r'] = $data['kapasitas_r'];
-		$param['fasilitas_r'] = $data['fasilitas_r'];
-		$param['admin_r']     = $data['admin_r'];
-		$param['email_r']     = $data['email_r'];
-		$param['phone_r']     = $data['phone_r'];
 
 		$this->db->insert($table, $param);
 

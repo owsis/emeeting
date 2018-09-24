@@ -66,6 +66,7 @@ if (!empty($additional_assets_css)) {
 				</a>
 			</div>
 			<div class="navbar-menu-wrapper d-flex align-items-center">
+				
 				<ul class="navbar-nav navbar-nav-left header-links d-none d-md-flex">
 				</ul>
 				<ul class="navbar-nav navbar-nav-right">
@@ -182,7 +183,8 @@ if (!empty($additional_assets_css)) {
 					<li class="nav-item dropdown d-none d-xl-inline-block">
 						<a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
 						<span class="profile-text">Hello, <?php echo $this->session->userdata('namapeg') ?></span>
-							<img class="img-xs rounded-circle" src="<?=base_url("assets/images/faces/face1.jpg")?>" alt="Profile image">
+							<!-- <img class="img-xs rounded-circle" src="<?=base_url("assets/images/faces/face1.jpg")?>" alt="Profile image"> -->
+							<i class="mdi mdi-account-circle"></i>
 						</a>
 						<div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
 							<a class="dropdown-item">

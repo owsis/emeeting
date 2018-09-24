@@ -13,7 +13,7 @@ class User extends MX_Controller {
 	public function index()
 	{
 		if($this->session->userdata('status') == '1'){
-			redirect(base_url('/dashboard'));
+			redirect(base_url('/ruangan'));
 		}
 		$this->load->view('user-login');
 	}
@@ -48,17 +48,18 @@ class User extends MX_Controller {
 			$data_session = array(
 				'status' => $result->status,
 				'nip' => $result->results[0]->nip,
-				'namapeg' => $result->results[0]->namapeg
+				'namapeg' => $result->results[0]->namapeg,
+				'njab' => $result->results[0]->njab
 			);
 
 			$this->session->set_userdata($data_session);
-			redirect(base_url('/dashboard'),'refresh');
+			redirect(base_url('/ruangan'),'refresh');
 
 		} else {
 
 			$message = "Username and/or Password incorrect.\\nTry again.";
 			echo "<script type='text/javascript'>alert('$message');</script>";
-			// redirect(base_url('/user'),'refresh');
+			redirect(base_url('/user'),'refresh');
 			
 		}
 		

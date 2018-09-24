@@ -14,13 +14,12 @@ class WelcomeModel extends CI_Model
 		return $this->db->get_where($table, $where);
 	}
 
-	public function get_list($table, $where = FALSE )
+	public function get_ruangan_where($table, $where, $value_where)
 	{
-		if ($where) {
-			$this->db->where($where);
-		}
+		$this->db->where($where, $value_where);
 		return $this->db->get($table)->result();
-	}	
+	}
+		
 	public function insert($table, $param)
 	{
 		$this->db->insert($table, $param);

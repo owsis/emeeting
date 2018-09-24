@@ -7,30 +7,19 @@ class Calendar extends MX_Controller {
 	{
 		parent::__construct();
 		$this->table 		= 'd004';
-		$this->load->model('CalendarModel', 'modeldb');
+		$this->load->model('CalendarModel', 'calendardb');
+		$this->load->helper('form', 'url');
+		$this->load->library('form_validation');
+
 		if($this->session->userdata('status') == ''){
 			redirect(base_url('/user'));
 		}
 	}
 
-	public function index() 
+	public function index($code_r = null) 
 	{
-		$data_cal = $this->modeldb->get_list($this->table);
-		date_default_timezone_set("Asia/Bangkok");
-		$cal = array();
-		foreach ($data_cal as $key => $d_cal) {
-			$cal[] = array(
-				'title' => $d_cal->title,
-				'description' => trim($d_cal->desc), 
-				'start' => date(DATE_ISO8601, strtotime($d_cal->start)),
-				'end' 	=> date(DATE_ISO8601, strtotime($d_cal->end)),
-				'color' => $d_cal->color,
-			);
-		}
-		$data_content['get_data'] = json_encode($cal);
 
-		$data_content['page_title'] = "Calendar";
-		$data_content['test'] = date(DATE_ISO8601, strtotime($data_cal[0]->start));
+		$data_content['page_title'] = 'test amkhsgdjha akjsgdkjasd asugdajkgsd kuagskjdgakj';
 
 		$data['content_view'] = $this->load->view('calendar', $data_content, TRUE);
 
@@ -65,55 +54,31 @@ class Calendar extends MX_Controller {
 		$this->load->view('main_layout/_base_layout', $data);
 	}
 
-	public function save()
+	public function store()
 	{
-		$response = array();
-		$this->form_validation->set_rules('title', 'Title cant be empty ', 'required');
-		if ($this->form_validation->run() == TRUE)
-		{
-			$param = $this->input->post();
-			$calendar_id = $param['calendar_id'];
-			unset($param['calendar_id']);
-			if($calendar_id == 0)
-			{
-				$param['create_at']   	= date('Y-m-d H:i:s');
-				$insert = $this->modeldb->insert($this->table, $param);
-				if ($insert > 0) 
-				{
-					$response['status'] = TRUE;
-					$response['notif']	= 'Success add calendar';
-					$response['id']		= $insert;
-				}
-				else
-				{
-					$response['status'] = FALSE;
-					$response['notif']	= 'Server wrong, please save again';
-				}
-			}
-			else
-			{	
-				$where 		= [ 'id'  => $calendar_id];
-				$param['modified_at']   	= date('Y-m-d H:i:s');
-				$update = $this->modeldb->update($this->table, $param, $where);
-				if ($update > 0) 
-				{
-					$response['status'] = TRUE;
-					$response['notif']	= 'Success add calendar';
-					$response['id']		= $calendar_id;
-				}
-				else
-				{
-					$response['status'] = FALSE;
-					$response['notif']	= 'Server wrong, please save again';
-				}
-			}
+		$this->form_validation->set_rules('title', 'Title', 'required');
+		$this->form_validation->set_rules('desc', 'Deskripsi', 'required');
+		$this->form_validation->set_rules('color', 'Color', 'required');
+		$this->form_validation->set_rules('start', 'Start', 'required');
+		$this->form_validation->set_rules('end', 'End', 'required');
+
+		if ($this->form_validation->run() == FALSE) {
+
+			$message = "Ada yang salah \\nTry again.";
+			echo "<script type='text/javascript'>alert('$message');</script>";
+			redirect('/calendar','refresh');
+
+		} else {
+			$data['title'] = $this->input->post('title');
+			$data['desc'] = $this->input->post('desc');
+			$data['start'] = $this->input->post('start');
+			$data['end'] = $this->input->post('end');
+			$data['color'] = $this->input->post('color');
+
+			$this->calendardb->insert($this->table, $data);
+			redirect('/calendar', 'refresh');
 		}
-		else
-		{
-			$response['status'] = FALSE;
-			$response['notif']	= validation_errors();
-		}
-		echo json_encode($response);
+
 	}
 	public function delete()
 	{
@@ -122,7 +87,7 @@ class Calendar extends MX_Controller {
 		if(!empty($calendar_id))
 		{
 			$where = ['id' => $calendar_id];
-			$delete = $this->modeldb->delete($this->table, $where);
+			$delete = $this->calendardb->delete($this->table, $where);
 			if ($delete > 0) 
 			{
 				$response['status'] = TRUE;

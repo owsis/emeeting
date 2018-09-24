@@ -96,6 +96,7 @@
 			text-align: left;
 			margin: 10px;
 			width: 100%;
+			height: 200px;
 			border-radius: 10px;
 		}
 		figure.snip1174 * {
@@ -188,7 +189,6 @@
 <body class="">
 
 
-
 		<!-- Start: Navbar Area
 			============================= -->
 			<header id="header" class="okayNav-header navbar-fixed-top main-navbar-top">
@@ -213,9 +213,15 @@
 									<li><a class="btn-nav" href="#download">Download App</a></li>
 								</ul>
 							</nav> -->
-							<div class="pull-right" style="margin-top: 8px">
-								<a href="<?=site_url('user')?>" class="btn btn-border">LOGIN</a>
-							</div>
+							<?php if ($this->session->userdata('status') == '1') { ?>
+								<div class="pull-right" style="margin-top: 8px">
+									<a href="<?=site_url('ruangan')?>" class="btn btn-border">RUANGAN</a>
+								</div>
+							<?php } else { ?>
+								<div class="pull-right" style="margin-top: 8px">
+									<a href="<?=site_url('user')?>" class="btn btn-border">LOGIN</a>
+								</div>
+							<?php } ?>
 							
 						</div> <!-- End: .col-xs-9 -->
 					</div> <!-- End: .row -->
@@ -228,7 +234,7 @@
 
 		<!-- Start: Header Section
 			================================ -->
-			<section class="features-section-4 section header-js section" id="header" style="background: url('<?=base_url("assets/images/ruangan/ditjen_pkp2trans_lt1.jpg")?>'); -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; background-color: #ffffff; background-repeat: no-repeat; background-position: 50% 50%; background-attachment: initial;">
+			<section class="features-section-4 section header-js section" id="header" style="background: url('<?=base_url("uploaded/images/ruangan/ditjen_pkp2trans_lt1.jpg")?>'); -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; background-color: #ffffff; background-repeat: no-repeat; background-position: 50% 50%; background-attachment: initial;">
 				<div class="overlay-color">
 					<div class="container">
 						<div class="row section-separator light-text">
@@ -245,9 +251,16 @@
 									<h1 class="title">E-Meeting Room</h1> 
 
 									<!-- Button Area -->
-									<div class="button-form col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
-										<a href="<?=site_url('user')?>" class="btn-fill btn">LOGIN</a>
-									</div>									
+									<?php if ($this->session->userdata('status') == '1') { ?>
+										<div class="button-form col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
+											<a href="<?=site_url('ruangan')?>" class="btn-fill btn">RUANGAN</a>
+										</div>
+									<?php } else { ?>
+										<div class="button-form col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
+											<a href="<?=site_url('user')?>" class="btn-fill btn">LOGIN</a>
+										</div>
+									<?php } ?>
+
 
 								</div>
 							</div> <!-- End: .part-1 -->
@@ -281,66 +294,24 @@
 
 								<!-- Photo Grid -->
 								<div class="row-img"> 
-									<div class="col-md-4">
-										<?php foreach ($ruangan as $ruang) {?>
+									<?php foreach ($ruangan as $ruang) { ?>
+
+										<div class="col-md-4">
 											<figure class="snip1174 navy">
-												<img src="<?php echo base_url("assets/images/ruangan/" . $ruang->img_r); ?>" style="width:100%">
+												<img src="<?php echo base_url("uploaded/images/ruangan/" . $ruang->img_r); ?>" style="width:100%">
 												<figcaption>
-													<a href="" class="btn-link-hover">
-														<h2><?=$ruang->name_r?></h2>
-														<p>terdapat 3 jadwal dihari ini</p>
+													<a href="javascript::void" class="btn-link-hover">
+														<h3 style="line-height: 28px"><?=$ruang->name_r?></h3>
+														<p style="font-weight: 400;">Lantai <?=$ruang->lantai_r?>, untuk <?=$ruang->kapasitas_r?> org</p>
 													</a>
-													<a href="#" class="btn-img-hover">Lihat Detail Jadwal</a>
+													<a href="<?=site_url('welcome/detail/' . $ruang->code_r)?>" class="btn-img-hover">Lihat Detail Jadwal</a>
 												</figcaption>
 											</figure>
-										<?php } ?>
-									</div>
+										</div>
+										
 
-									<div class="col-md-4">
-										<figure class="snip1174 navy">
-											<img src="<?php echo base_url("assets/images/ruangan/pktrans.JPG") ?>" style="width:100%">
-											<figcaption>
-												<h2>Ruang PKTRANS</h2>
-												<p>terdapat 3 jadwal dihari ini</p>
-												<a href="#" class="btn-img-hover">Lihat Detail Jadwal</a>
-											</figcaption>
-										</figure>
+									<?php } ?>
 
-										<figure class="snip1174 navy">
-											<img src="<?php echo base_url("assets/images/ruangan/ditjen_pkp_lt4.jpg") ?>" style="width:100%">
-											<figcaption>
-												<h2>Ruang PKTRANS</h2>
-												<p>terdapat 3 jadwal dihari ini</p>
-												<a href="#" class="btn-img-hover">Lihat Detail Jadwal</a>
-											</figcaption>
-										</figure>
-									</div>  
-									<div class="col-md-4">
-										<figure class="snip1174 navy">
-											<img src="<?php echo base_url("assets/images/ruangan/ditjen_pkp2trans_lt3.JPG") ?>" style="width:100%">
-											<figcaption>
-												<h2>Ruang PKTRANS</h2>
-												<p>terdapat 3 jadwal dihari ini</p>
-												<a href="#" class="btn-img-hover">Lihat Detail Jadwal</a>
-											</figcaption>
-										</figure>
-										<figure class="snip1174 navy">
-											<img src="<?php echo base_url("assets/images/ruangan/oproom.jpg") ?>" style="width:100%">
-											<figcaption>
-												<h2>Ruang PKTRANS</h2>
-												<p>terdapat 3 jadwal dihari ini</p>
-												<a href="#" class="btn-img-hover">Lihat Detail Jadwal</a>
-											</figcaption>
-										</figure>
-										<figure class="snip1174 navy">
-											<img src="<?php echo base_url("assets/images/ruangan/eksekutive_lt_2.jpg") ?>" style="width:100%">
-											<figcaption>
-												<h2>Ruang PKTRANS</h2>
-												<p>terdapat 3 jadwal dihari ini</p>
-												<a href="#" class="btn-img-hover">Lihat Detail Jadwal</a>
-											</figcaption>
-										</figure>
-									</div>
 								</div>
 
 							</div> <!-- End: .row -->
@@ -351,8 +322,6 @@
 			</section>
 		<!-- End: Features Section 1
 			================================== -->
-
-
 
 
 		<!-- Start: Features Section 2
@@ -587,20 +556,6 @@
 
 		<!-- CUSTOMIZER :: FOR DEMO ONLY 
 			==========================================-->
-			<script src="../../demo-style/js/main.js"></script>
-
-			<script type="text/javascript">
-				$(document).ready(customizer.init({
-					colors: {
-						title: 'COLORS:',
-						options: [
-						['color-1', 'css/colors/color-1.css', '', true],
-						['color-2', 'css/colors/color-2.css', ''],
-						['color-3', 'css/colors/color-3.css', '']
-						]
-					}
-				}, '../../demo-style/css/main.css'));
-			</script>
 
 		</body>
 

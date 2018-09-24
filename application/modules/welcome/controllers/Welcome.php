@@ -23,6 +23,7 @@ class Welcome extends MX_Controller {
 	{
 		parent::__construct();
 		$this->t_ruangan = 'd003';
+		$this->t_jadwal = 'd004';
 		$this->t_user = 'd001';
 		$this->load->model('WelcomeModel', 'welcomedb'); 
 	}
@@ -34,5 +35,18 @@ class Welcome extends MX_Controller {
 		$this->load->view('welcome_message', $data);
 	}
 
-	
+	public function detail($code_r)
+	{
+
+		$this->db->where(array('d004.code_r' => $code_r));
+		$data['jadwal'] = $this->db->get($this->t_jadwal)->result();
+
+		$this->db->where(array('d003.code_r' => $code_r));
+		$data['ruang'] = $this->db->get($this->t_ruangan)->result();
+		$data['no'] = 1;
+
+		$this->load->view('detail', $data);
+
+	}
+
 }
