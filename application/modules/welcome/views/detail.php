@@ -89,13 +89,16 @@
 						<th>Mulai Dari -</th>
 						<th>Sampai</th>
 					</tr>
-					<?php foreach ($jadwal as $key) { ?>
+					<?php foreach ($jadwal as $key) { 
+						$start = strtotime($key->start);
+						$end = strtotime($key->end);
+					?>
 						<tr>
 							<td><?=$no++?></td>
 							<td><?=$key->title?></td>
 							<td><?=$key->desc?></td>
-							<td><?=$key->start?></td>
-							<td><?=$key->end?></td>
+							<td><?=date('d M Y H:i', $start)?></td>
+							<td><?=date('d M Y H:i', $end)?></td>
 						</tr>
 					<?php } ?>
 				</table>

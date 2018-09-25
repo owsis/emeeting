@@ -62,7 +62,7 @@
 					</div>
 
 					<div class="form-group">
-						<label for="color" class="col-sm-2 control-label">Color</label>
+						<label for="color" class="col-sm-2 control-label">Warna Jadwal</label>
 						<div class="col-sm-10">
 							<select name="color" class="form-control">
 								<option value="">Choose</option>
@@ -78,14 +78,14 @@
 					</div>
 
 					<div class="form-group">
-						<label class="control-label col-sm-4">Start Date</label>
+						<label class="control-label col-sm-4">Mulai Rapat</label>
 						<div class="col-sm-10">
 							<input id="datetimepicker1" type="text" class="form-control" name="start" />
 						</div>
 					</div>
 
 					<div class="form-group">
-						<label class="control-label col-sm-4">End Date</label>
+						<label class="control-label col-sm-4">Selesai Rapat</label>
 						<div class="col-sm-10">
 							<input id="datetimepicker2" type="text" class="form-control" name="end"/>
 						</div>
@@ -141,10 +141,10 @@
 					</div>
 
 					<div class="form-group">
-						<label for="color" class="col-sm-2 control-label">Color</label>
+						<label for="color" class="col-sm-2 control-label">Warna Judul</label>
 						<div class="col-sm-10">
 							<select name="color" class="form-control">
-								<option value="">Choose</option>
+								<option value="">Warna Judul</option>
 								<option style="color:#3F51B5;" value="#3F51B5">&#9724; Indigo</option>
 								<option style="color:#40E0D0;" value="#40E0D0">&#9724; Turquoise</option>
 								<option style="color:#009688;" value="#009688">&#9724; Teal</option>                       
@@ -157,14 +157,14 @@
 					</div>
 
 					<div class="form-group">
-						<label class="control-label col-sm-4">Start Date</label>
+						<label class="control-label col-sm-4">Mulai Rapat</label>
 						<div class="col-sm-10">
 							<input id="datetimepicker3" type="text" class="form-control" name="start" autocomplete="off" />
 						</div>
 					</div>
 
 					<div class="form-group">
-						<label class="control-label col-sm-4">End Date</label>
+						<label class="control-label col-sm-4">Selesai Rapat</label>
 						<div class="col-sm-10">
 							<input id="datetimepicker4" type="text" class="form-control" name="end" autocomplete="off" />
 						</div>
