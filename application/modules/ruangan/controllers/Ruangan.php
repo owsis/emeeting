@@ -112,6 +112,7 @@ class Ruangan extends MX_Controller {
 		
 		$data_events = array();
 		foreach($events->result() as $r) {
+			date_default_timezone_set('Asia/Jakarta');
 			$data_events[] = array(
 				"id" => $r->id,
 				"title" => $r->title,
