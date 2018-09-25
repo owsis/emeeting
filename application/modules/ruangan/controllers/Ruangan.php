@@ -113,6 +113,7 @@ class Ruangan extends MX_Controller {
 		$data_events = array();
 		foreach($events->result() as $r) {
 			$data_events[] = array(
+				"id" => $r->id,
 				"title" => $r->title,
 				"description" => $r->desc,
 				"code_r" => $r->code_r,
@@ -141,6 +142,41 @@ class Ruangan extends MX_Controller {
 		$this->load->view('main_layout/_base_layout', $data);
 	}
 
+	public function jadwal_update($id)
+	{
+		$this->form_validation->set_rules('code_r', 'Ruangan', 'required');
+		$this->form_validation->set_rules('title', 'Jadwal Rapat', 'required');
+		$this->form_validation->set_rules('desc', 'Deskripsi Rapat', 'required');
+		$this->form_validation->set_rules('color', 'Color', 'required');
+		$this->form_validation->set_rules('start', 'Start', 'required');
+		$this->form_validation->set_rules('end', 'End', 'required');
+
+		if ($this->form_validation->run() == FALSE) {
+
+			$message = "Ada yang salah \\nTry again.";
+			echo "<script type='text/javascript'>alert('$message');</script>";
+			redirect('/ruangan/jadwal/' . $this->input->post('code_r'), 'refresh');
+
+		} else {
+
+			$data['code_r'] = $this->input->post('code_r');
+			$data['title'] = $this->input->post('title');
+			$data['desc'] = $this->input->post('desc');
+			$data['start'] = $this->input->post('start');
+			$data['end'] = $this->input->post('end');
+			$data['color'] = $this->input->post('color');
+
+
+			$this->ruangandb->update(
+				$this->tableJadwal,
+				$data,
+				'id',
+				$id
+			);
+			redirect('/ruangan/jadwal/' . $this->input->post('code_r'), 'refresh');
+		}
+	}
+
 	public function jadwal_store()
 	{
 		
@@ -155,7 +191,7 @@ class Ruangan extends MX_Controller {
 
 			$message = "Ada yang salah \\nTry again.";
 			echo "<script type='text/javascript'>alert('$message');</script>";
-			redirect('/calendar','refresh');
+			redirect('/ruangan/jadwal/' . $this->input->post('code_r'), 'refresh');
 
 		} else {
 			$data['code_r'] = $this->input->post('code_r');

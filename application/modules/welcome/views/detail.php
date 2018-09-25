@@ -56,48 +56,6 @@
 <body class="">
 
 
-		<!-- Start: Navbar Area
-			============================= -->
-			<header id="header" class="okayNav-header navbar-fixed-top main-navbar-top">
-				<div class="container">
-					<div class="row">
-
-						<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-
-							<!-- TEMPLATE LOGO LIGHT -->
-							<a class="navbar-brand light-logo" href=""><img src="<?=base_url("assets/images/logo-kemendesa.svg")?>" alt="" class="img-responsive"></a>
-
-						</div> <!-- End: .col-xs-3 -->
-						<div class="col-lg-9 col-md-9 col-sm-9 col-xs-6">
-
-							<!-- <nav role="navigation" class="pull-right" id="js-navbar-menu">
-								<ul id="navbar-nav" class="navbar-nav">
-									<li><a class="btn-nav" href="#features">Features</a></li>
-									<li><a class="btn-nav" href="#how-it-works">How it works</a></li>
-									<li><a class="btn-nav" href="#describe">Describe</a></li>
-									<li><a class="btn-nav" href="#subscribe">Subscribe</a></li>
-									<li><a class="btn-nav" href="#screenshots">Screenshots</a></li>
-									<li><a class="btn-nav" href="#download">Download App</a></li>
-								</ul>
-							</nav> -->
-							<?php if ($this->session->userdata('status') == '1') { ?>
-								<div class="pull-right" style="margin-top: 8px">
-									<a href="<?=site_url('ruangan')?>" class="btn btn-border">RUANGAN</a>
-								</div>
-							<?php } else { ?>
-								<div class="pull-right" style="margin-top: 8px">
-									<a href="<?=site_url('user')?>" class="btn btn-border">LOGIN</a>
-								</div>
-							<?php } ?>
-							
-						</div> <!-- End: .col-xs-9 -->
-					</div> <!-- End: .row -->
-				</div> <!-- End: .container -->
-			</header><!-- /header -->
-		<!-- End: Navbar Area
-			============================= -->
-
-
 		<!-- Start: Features Section 1
 			================================== -->
 			<?php foreach ($ruang as $key) { ?>

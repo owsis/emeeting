@@ -36,10 +36,10 @@ class RuanganModel extends CI_Model
 
 		return $this->db->insert_id();
 	}
-	public function update($table, $set, $where)
+	public function update($table, $data, $where, $value)
 	{
-		$this->db->where($where);
-		$this->db->update($table, $set);
+		$this->db->where($where, $value);
+		$this->db->update($table, $data);
 		return $this->db->affected_rows();
 	}
 	public function delete($table, $where)

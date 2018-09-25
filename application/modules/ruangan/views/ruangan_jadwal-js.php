@@ -12,6 +12,18 @@
 		});
 	});
 
+	$(function () {
+		$('#datetimepicker3').datetimepicker({
+			format: 'YYYY-MM-DD HH:mm:ss'
+		});
+	});
+
+	$(function () {
+		$('#datetimepicker4').datetimepicker({
+			format: 'YYYY-MM-DD HH:mm:ss'
+		});
+	});
+
 
 	$(document).ready(function() {
 
@@ -41,14 +53,20 @@
 				$('#create_modal').modal('show');
 				$('#create_modal input[name=start]').val(moment(start).format('YYYY-MM-DD HH:mm:ss'));
 				$('#create_modal input[name=end]').val(moment(end).format('YYYY-MM-DD HH:mm:ss'));
-				save();
 				$('#calendar').fullCalendar('unselect');
 				
 			},
 			events: data_js,
 			eventLimit: true,
 			eventClick: function(event, element) {
-
+				$('#edit_modal').modal('show');
+				document.getElementById('form_update').action = "<?=site_url('ruangan/jadwal_update/')?>" + event.id;
+				$('#edit_modal input[name=id]').val(event.id);
+				$('#edit_modal input[name=title]').val(event.title);
+				document.getElementById("desc").value = event.description;
+				$('#edit_modal input[name=start]').val(moment(event.start).format('YYYY-MM-DD HH:mm:ss'));
+				$('#edit_modal input[name=end]').val(moment(event.end).format('YYYY-MM-DD HH:mm:ss'));
+				$('#edit_modal select[name=color]').val(event.color);
 			}
 		});
 
