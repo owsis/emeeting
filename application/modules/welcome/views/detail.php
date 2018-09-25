@@ -90,6 +90,7 @@
 						<th>Sampai</th>
 					</tr>
 					<?php foreach ($jadwal as $key) { 
+						date_default_timezone_set('Asia/Jakarta');
 						$start = strtotime($key->start);
 						$end = strtotime($key->end);
 					?>
