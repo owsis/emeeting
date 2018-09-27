@@ -43,6 +43,7 @@ class Welcome extends MX_Controller {
 				'd004.code_r' => $code_r,
 			)
 		);
+		$this->db->where('start <= NOW()');
 		$this->db->where('end >= NOW()');
 		$this->db->limit(1);
 		$data['jadwal'] = $this->db->get($this->t_jadwal)->result();
