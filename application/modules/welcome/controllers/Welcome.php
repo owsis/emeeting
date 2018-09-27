@@ -44,13 +44,14 @@ class Welcome extends MX_Controller {
 			)
 		);
 		$this->db->where('end >= NOW()');
+		$this->db->limit(1);
 		$data['jadwal'] = $this->db->get($this->t_jadwal)->result();
 
 		$this->db->where(array('d003.code_r' => $code_r));
 		$data['ruang'] = $this->db->get($this->t_ruangan)->result();
 		$data['no'] = 1;
 
-		$this->load->view('detail', $data);
+		$this->load->view('welcome_detail', $data);
 
 	}
 
