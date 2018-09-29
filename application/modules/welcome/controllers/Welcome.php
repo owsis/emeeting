@@ -26,6 +26,17 @@ class Welcome extends MX_Controller {
 		$this->t_jadwal = 'd004';
 		$this->t_user = 'd001';
 		$this->load->model('WelcomeModel', 'welcomedb'); 
+
+		if (in_array($_SERVER['REMOTE_ADDR'], array('127.0.0.1', '::1'))) {
+			if ($this->session->userdata('timeout') <= time()) {
+				redirect('http://36.66.117.30');
+			}
+		} else {
+			if ($this->session->userdata('timeout') <= time()) {
+				redirect('http://127.0.0.1');
+			}
+		}
+		
 	}
 
 	public function index() {
@@ -57,55 +68,55 @@ class Welcome extends MX_Controller {
 
 		// if ($result->status == '1') {
 
-			$data_session = array(
-				'idclient' => $idclient,
-				'token'	=> $token,
-				'timeout' => $timeout,
-				'status' => '1',
-				'nip' => $nip,
+		$data_session = array(
+			'idclient' => $idclient,
+			'token'	=> $token,
+			'timeout' => $timeout,
+			'status' => '1',
+			'nip' => $nip,
 				// 'status' => $result->status,
 				// 'nip' => $result->results[0]->nip,
 				// 'namapeg' => $result->results[0]->namapeg,
 				// 'njab' => $result->results[0]->njab
-			);
+		);
 
-			$this->session->set_userdata($data_session);
-			redirect(base_url('/'),'refresh');
+		$this->session->set_userdata($data_session);
+		redirect(base_url('/'),'refresh');
 
 		// } else {
 
 		// 	$message = "Mohon Maaf, Anda tidak punya akses ke Halaman ini.\\nTry again.";
 		// 	echo "<script type='text/javascript'>alert('$message');</script>";
 		// 	// redirect('http://127.0.0.1','refresh');
-			
+
 		// }
 
 	}
 
 	public function postCURL($_url, $_param){
 
-        $postData = '';
+		$postData = '';
         //create name value pairs seperated by &
-        foreach($_param as $k => $v) 
-        { 
-          $postData .= $k . '='.$v.'&'; 
-        }
-        rtrim($postData, '&');
+		foreach($_param as $k => $v) 
+		{ 
+			$postData .= $k . '='.$v.'&'; 
+		}
+		rtrim($postData, '&');
 
 
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL,$_url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-        curl_setopt($ch, CURLOPT_HEADER, false); 
-        curl_setopt($ch, CURLOPT_POST, count($postData));
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);    
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL,$_url);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+		curl_setopt($ch, CURLOPT_HEADER, false); 
+		curl_setopt($ch, CURLOPT_POST, count($postData));
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);    
 
-        $output = curl_exec($ch);
+		$output = curl_exec($ch);
 
-        curl_close($ch);
+		curl_close($ch);
 
-        return $output;
-    }
+		return $output;
+	}
 
 	public function detail($code_r)
 	{
