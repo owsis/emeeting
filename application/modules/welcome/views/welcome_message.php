@@ -248,7 +248,7 @@
 									</a>
 
 									<!--  Header SubTitle Goes here -->
-									<h1 class="title">E-Meeting Room</h1> 
+									<h1 class="title">E-Meeting Room</h1>
 
 									<!-- Button Area -->
 									<?php if ($this->session->userdata('status') == '1') { ?>

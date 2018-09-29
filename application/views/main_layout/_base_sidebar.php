@@ -2,10 +2,10 @@
   <ul class="nav">
     <li class="nav-item nav-profile">
       <div class="nav-link">
-        <div class="user-wrapper">
+        <!-- <div class="user-wrapper">
           <div class="profile-image">
             <img src="<?=base_url("assets/images/faces/face1.jpg")?>" alt="profile image">
-            <!-- <span class="mdi mdi-account-circle"></span> -->
+            <span class="mdi mdi-account-circle"></span>
           </div>
           <div class="text-wrapper">
             <p class="profile-name"><?php echo $this->session->userdata('namapeg') ?></p>
@@ -19,7 +19,7 @@
               <span class="status-indicator online"></span>
             </div>
           </div>
-        </div>
+        </div> -->
         <!-- <a href="javascript::void" class="btn btn-success btn-block" data-target="#tambahModal">
           <i class="menu-icon mdi mdi-paper"></i>
           Buat Jadwal

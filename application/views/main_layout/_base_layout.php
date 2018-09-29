@@ -180,17 +180,17 @@ if (!empty($additional_assets_css)) {
 							</a>
 						</div>
 					</li> -->
-					<li class="nav-item dropdown d-none d-xl-inline-block">
+					<!-- <li class="nav-item dropdown d-none d-xl-inline-block">
 						<a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
 						<span class="profile-text">Hello, <?php echo $this->session->userdata('namapeg') ?></span>
-							<!-- <img class="img-xs rounded-circle" src="<?=base_url("assets/images/faces/face1.jpg")?>" alt="Profile image"> -->
+							<img class="img-xs rounded-circle" src="<?=base_url("assets/images/faces/face1.jpg")?>" alt="Profile image">
 							<i class="mdi mdi-account-circle"></i>
 						</a>
 						<div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
 							<a class="dropdown-item">
 								<p class="mb-0 font-weight-normal float-left">User Account</p>
 							</a>
-							<!-- <a class="dropdown-item p-0">
+							<a class="dropdown-item p-0">
 								<div class="d-flex border-bottom">
 									<div class="py-3 px-4 d-flex align-items-center justify-content-center">
 										<i class="mdi mdi-bookmark-plus-outline mr-0 text-gray"></i>
@@ -202,8 +202,8 @@ if (!empty($additional_assets_css)) {
 										<i class="mdi mdi-alarm-check mr-0 text-gray"></i>
 									</div>
 								</div>
-							</a> -->
-							<!-- <a class="dropdown-item mt-2">
+							</a>
+							<a class="dropdown-item mt-2">
 								Manage Accounts
 							</a>
 							<a class="dropdown-item">
@@ -211,11 +211,14 @@ if (!empty($additional_assets_css)) {
 							</a>
 							<a class="dropdown-item">
 								Check Inbox
-							</a> -->
+							</a>
 							<a class="dropdown-item" href="<?=site_url('user/logout')?>">
 								<h6 class="preview-subject font-weight-medium text-dark">Sign Out</h6>
 							</a>
 						</div>
+					</li> -->
+					<li class="nav-item">
+						<span class="profile-text">Hello, <?php echo $this->session->userdata('nip') ?></span>
 					</li>
 				</ul>
 				<button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
