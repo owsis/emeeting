@@ -27,19 +27,23 @@ class Welcome extends MX_Controller {
 		$this->t_user = 'd001';
 		$this->load->model('WelcomeModel', 'welcomedb'); 
 
-		if (in_array($_SERVER['REMOTE_ADDR'], array('127.0.0.1', '::1'))) {
-			if ($this->session->userdata('timeout') <= time()) {
-				redirect('http://36.66.117.30');
-			}
-		} else {
-			if ($this->session->userdata('timeout') <= time()) {
-				redirect('http://127.0.0.1');
-			}
-		}
+		// if (in_array($_SERVER['REMOTE_ADDR'], array('127.0.0.1', '::1'))) {
+		// 	if ($this->session->userdata('timeout') >= time()) {
+		// 		redirect('http://36.66.117.30');
+		// 	}
+		// } else {
+		// 	if ($this->session->userdata('timeout') >= time()) {
+		// 		redirect('http://127.0.0.1');
+		// 	}
+		// }
 		
 	}
 
 	public function index() {
+
+		// if ($this->session->userdata('timeout') >= time()) {
+		// 	redirect('http://36.66.117.30');
+		// }
 
 		$data['ruangan'] = $this->welcomedb->get_ruangan($this->t_ruangan);
 

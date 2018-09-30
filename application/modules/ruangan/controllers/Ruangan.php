@@ -12,15 +12,15 @@ class Ruangan extends MX_Controller {
 		$this->load->helper('form', 'url');
 		$this->load->library('form_validation');
 
-		if (in_array($_SERVER['REMOTE_ADDR'], array('127.0.0.1', '::1'))) {
+		// if (in_array($_SERVER['REMOTE_ADDR'], array('127.0.0.1', '::1'))) {
 			if ($this->session->userdata('timeout') <= time()) {
 				redirect('http://36.66.117.30');
 			}
-		} else {
-			if ($this->session->userdata('timeout') <= time()) {
-				redirect('http://127.0.0.1');
-			}
-		} 
+		// } else {
+		// 	if ($this->session->userdata('timeout') <= time()) {
+		// 		redirect('http://127.0.0.1');
+		// 	}
+		// } 
 	}
 
 	public function unique_code($length) {
