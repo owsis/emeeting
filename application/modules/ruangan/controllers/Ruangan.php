@@ -62,7 +62,7 @@ class Ruangan extends MX_Controller {
 
 			$config['upload_path'] = './uploaded/images/ruangan/';
 			$config['allowed_types'] = 'gif|jpg|png';
-			$config['max_size']  = '100';
+			// $config['max_size']  = '1000';
 			
 			$this->load->library('upload', $config);
 			$this->upload->initialize($config);

@@ -87,6 +87,9 @@
 		color: #fff;
 		line-height: .5rem;
 	}
+	.nothing {
+		font-size: 30px;
+	}
 	.footer {
 		text-align: center;
 		text-align: center;
@@ -114,6 +117,33 @@
 		vertical-align: center;
 		color: #fff;
 		border-radius: 50px;
+	}
+
+	@media only screen and (max-width: 768px) {
+		/* For mobile phones: */
+		.container {
+			position: fixed;
+			left: 0;
+			right: 0;
+			z-index: 9999;
+			margin: 40px 10px;
+			background: rgba(225, 225, 225, .5);
+			padding: 1px;
+			height: 500px;
+		}
+		.subcontainer {
+			margin: 5px;
+			padding: 10px;
+		}
+		.title {
+			text-align: center;
+			font-size: 40px;
+			font-weight: 800;
+			color: #fff;
+		}
+		.nothing {
+			font-size: 20px;
+		}
 	}
 </style>
 </head>
@@ -150,7 +180,7 @@
 				<br>
 				<br>
 				<br>
-				<h3 class="content" style="font-size: 30px;">BELUM ADA JADWAL SAAT INI</h3>
+				<h3 class="content nothing">BELUM ADA JADWAL SAAT INI</h3>
 			<?php } ?>
 
 

@@ -183,6 +183,13 @@
 			opacity: 1;
 		}
 
+		@media only screen and (max-width: 768px) {
+			/* For mobile phones: */
+			.buttons {
+				visibility: hidden;
+			}
+		}
+
 	</style>
 
 </head>
@@ -201,7 +208,7 @@
 							<a class="navbar-brand light-logo" href=""><img src="<?=base_url("assets/images/logo-kemendesa.svg")?>" alt="" class="img-responsive"></a>
 
 						</div> <!-- End: .col-xs-3 -->
-						<div class="col-lg-9 col-md-9 col-sm-9 col-xs-6">
+						<div class="col-lg-9 col-md-9 col-sm-9 col-xs-6 buttons">
 
 							<!-- <nav role="navigation" class="pull-right" id="js-navbar-menu">
 								<ul id="navbar-nav" class="navbar-nav">
