@@ -24,13 +24,13 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 	<style type="text/css">
-	html {
+	/* html {
 		background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)),
 		url('<?=base_url("uploaded/images/ruangan/" . $ruang[0]->img_r)?>') no-repeat center center fixed; 
 		background-size: cover;
 		height: 100%;
 		overflow: hidden;
-	}
+	} */
 
 	body {
 		top: 0;
@@ -41,7 +41,7 @@
 		padding: 0;
 		font-family: 'Overpass', sans-serif;
 	}
-	/*.background-image {
+	.background-image {
 		position: fixed;
 		left: 0;
 		right: 0;
@@ -51,12 +51,12 @@
 		width: 100%;
 		height: 100%;
 
-		-webkit-filter: blur(500px) grayscale(25%);
-		-moz-filter: blur(500px) grayscale(25%);
-		-o-filter: blur(500px) grayscale(25%);
-		-ms-filter: blur(500px) grayscale(25%);
-		filter: blur(1px) grayscale(25%);
-	}*/
+		-webkit-filter: blur(3px) grayscale(25%);
+		-moz-filter: blur(3px) grayscale(25%);
+		-o-filter: blur(3px) grayscale(25%);
+		-ms-filter: blur(3px) grayscale(25%);
+		filter: blur(3px) grayscale(25%);
+	}
 	.container {
 		position: fixed;
 		left: 0;
@@ -148,7 +148,9 @@
 </style>
 </head>
 <body>
-
+<div class="row">
+	<div></div>
+</div>
 	<div class="container">
 		<h2 class="title"><?=strtoupper($ruang[0]->name_r)?></h2>
 		<div class="subcontainer">
