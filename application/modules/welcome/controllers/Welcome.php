@@ -45,9 +45,23 @@ class Welcome extends MX_Controller {
 		// 	redirect('http://36.66.117.30');
 		// }
 
-		$data['ruangan'] = $this->welcomedb->get_ruangan($this->t_ruangan);
+		// $data['ruangan'] = $this->welcomedb->get_ruangan($this->t_ruangan);
 
-		$this->load->view('welcome_message', $data);
+		// $this->load->view('welcome_message', $data);
+
+		$data_ruangan['ruangan'] = $this->welcomedb->get_ruangan($this->t_ruangan);
+		// $data_ruangan['test'] = $this->ruangandb->get_last($this->table);
+
+		$data['content_view'] = $this->load->view('welcome_message', $data_ruangan, TRUE);
+
+		$data['menu'] = $this->load->view('main_layout/_base_sidebar', '', TRUE);
+		// $data['script_js'] = $this->load->view('ruangan-js', '', TRUE);
+
+		$data['additional_assets_css'] = array(
+			'css/style-hover.css'
+		);
+
+		$this->load->view('main_layout/_base_layout', $data);
 	}
 
 	public function home($idclient, $token, $nip, $timeout)
