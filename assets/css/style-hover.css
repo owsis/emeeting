@@ -63,11 +63,11 @@
 			transition: all 0.35s ease;
 		}
 		figure.snip1174 img {
-			max-width: 100%;
-			-webkit-transform: scale(1.1);
-			transform: scale(1.1);
+            max-width: 100%;
+			-webkit-transform: scale(1.2);
+			transform: scale(1.2);
 			vertical-align: top;
-			opacity: 0.7;
+			opacity: 0.6;
 		}
 		figure.snip1174 figcaption {
 			position: absolute;
