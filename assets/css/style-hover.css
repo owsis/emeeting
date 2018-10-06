@@ -51,7 +51,7 @@
 			background-color: #1a1a1a;
 			color: #ffffff;
 			text-align: left;
-			margin: 10px;
+            margin: 10px;
 			width: 100%;
 			height: 200px;
 			border-radius: 10px;
@@ -71,14 +71,14 @@
 		}
 		figure.snip1174 figcaption {
 			position: absolute;
-			padding: 0 15px;
+			padding: 10px 15px;
 			top: 0;
 			left: 0;
 		}
 		figure.snip1174 h2,
 		figure.snip1174 p {
-			margin: 0;
-			padding: 0;
+			margin: 0px;
+			padding: 10px;
 		}
 		figure.snip1174 a.btn-link-hover, 
 		.btn-link-hover p {
@@ -89,7 +89,7 @@
 		figure.snip1174 h2 {
 			display: inline-block;
 			font-weight: 100;
-			font-size: 1.8em;
+            font-size: 18pt;
 		}
 		figure.snip1174 p {
 			font-weight: 300;

@@ -12,9 +12,9 @@
 				<img src="<?php echo base_url("uploaded/images/ruangan/" . $ruang->img_r); ?>" style="width:100%">
 				<figcaption>
 					<a href="javascript::void" class="btn-link-hover">
-						<h3 style="line-height: 28px">
+						<h2 style="line-height: 28px">
 							<?=$ruang->name_r?>
-						</h3>
+						</h2>
 						<p style="font-weight: 400;">Lantai
 							<?=$ruang->lantai_r?>, untuk
 							<?=$ruang->kapasitas_r?> org</p>
