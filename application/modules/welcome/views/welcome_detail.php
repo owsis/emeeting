@@ -22,6 +22,8 @@
 	<link href="https://fonts.googleapis.com/css?family=Overpass:700,800" rel="stylesheet">
 	<!-- FONT AWESOME -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- BOOTSTRAP 4 -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
 	<style type="text/css">
 	/* html {
@@ -43,19 +45,23 @@
 	}
 	.background-image {
 		position: fixed;
+		margin-left: -5px;
+		margin-right: -5px;
 		left: 0;
 		right: 0;
+		top: 0;
+		bottom: 0;
 		z-index: 1;
 		background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url('<?=base_url("uploaded/images/ruangan/" . $ruang[0]->img_r)?>') no-repeat center center fixed; 
 		background-size: cover;
 		width: 100%;
 		height: 100%;
 
-		-webkit-filter: blur(3px) grayscale(25%);
-		-moz-filter: blur(3px) grayscale(25%);
-		-o-filter: blur(3px) grayscale(25%);
-		-ms-filter: blur(3px) grayscale(25%);
-		filter: blur(3px) grayscale(25%);
+		-webkit-filter: blur(2px) grayscale(25%);
+		-moz-filter: blur(2px) grayscale(25%);
+		-o-filter: blur(2px) grayscale(25%);
+		-ms-filter: blur(2px) grayscale(25%);
+		filter: blur(2px) grayscale(25%);
 	}
 	.container {
 		position: fixed;
@@ -96,11 +102,6 @@
 		font-size: 20px;
 		font-weight: 700;
 		color: #fff;
-	}
-	.row {
-		display: inline-block;
-		width: 100%;
-		text-align: center;
 	}
 	.btn {
 		padding: 15px 50px;
@@ -149,8 +150,8 @@
 </head>
 <body>
 <div class="row">
-	<div></div>
-</div>
+	<div style="width: 66%">
+	<div class="background-image"></div>
 	<div class="container">
 		<h2 class="title"><?=strtoupper($ruang[0]->name_r)?></h2>
 		<div class="subcontainer">
@@ -189,6 +190,13 @@
 			
 		</div>
 	</div>
+	</div>
+	<div style="width: 33%">
+		<p>test</p>
+	</div>
+	
+</div>
+	
 
 		<!-- <section class="Section-separator">
 

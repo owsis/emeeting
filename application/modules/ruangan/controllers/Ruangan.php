@@ -14,7 +14,7 @@ class Ruangan extends MX_Controller {
 
 		// if (in_array($_SERVER['REMOTE_ADDR'], array('127.0.0.1', '::1'))) {
 			if ($this->session->userdata('timeout') <= time()) {
-				redirect('http://36.66.117.30');
+				redirect('http://eoffice.kemendesa.go.id');
 			}
 		// } else {
 		// 	if ($this->session->userdata('timeout') <= time()) {

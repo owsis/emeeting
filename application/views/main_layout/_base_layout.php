@@ -218,7 +218,7 @@ if (!empty($additional_assets_css)) {
 						</div>
 					</li> -->
 					<li class="nav-item">
-						<span class="profile-text">Hello, <?php echo $this->session->userdata('nip') ?></span>
+						<span class="profile-text">Hi, <?php echo $this->session->userdata('name') ?></span>
 					</li>
 				</ul>
 				<button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
@@ -240,9 +240,9 @@ if (!empty($additional_assets_css)) {
 					<div class="container-fluid clearfix">
 						<span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2018
 							<a href="javascript::void" target="_blank">Kemendesa</a>. All rights reserved.</span>
-							<span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with
+							<!-- <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with
 								<i class="mdi mdi-heart text-danger"></i>
-							</span>
+							</span> -->
 						</div>
 					</footer>
 

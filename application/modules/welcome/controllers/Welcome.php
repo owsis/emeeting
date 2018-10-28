@@ -67,24 +67,24 @@ class Welcome extends MX_Controller {
 	public function home($idclient, $token, $nip, $timeout)
 	{
 
-		// $data = array(
-		// 	'nip' => $nip,
-		// 	'key' => 's1mp3g2018'
-		// );
+		$data = array(
+			'nip' => $nip,
+			'key' => 's1mp3g2018'
+		);
 
-		// if (in_array($_SERVER['REMOTE_ADDR'], array('127.0.0.1', '::1'))) {
-		// 	$urlLogin = 'http://36.66.117.30/simpeg/api/list_employee/';
-		// } else {
-		// 	$urlLogin = 'http://127.0.0.1/simpeg/api/list_employee/';
-		// }
+		if (in_array($_SERVER['REMOTE_ADDR'], array('127.0.0.1', '::1'))) {
+			$urlLogin = 'http://eoffice.kemendesa.go.id/simpeg/api/list_employee/';
+		} else {
+			$urlLogin = 'http://127.0.0.1/simpeg/api/list_employee/';
+		}
 
-		// $login = $this->postCURL($urlLogin, $data);
-		// $result = json_decode($login);
+		$login = $this->postCURL($urlLogin, $data);
+		$result = json_decode($login);
 
-		// echo $result->results[0]->nip;
 		// echo $result->status;
+		// echo $result->results[0]->name;
 
-		// if ($result->status == '1') {
+		if ($result->status == '1') {
 
 		$data_session = array(
 			'idclient' => $idclient,
@@ -92,22 +92,29 @@ class Welcome extends MX_Controller {
 			'timeout' => $timeout,
 			'status' => '1',
 			'nip' => $nip,
-				// 'status' => $result->status,
-				// 'nip' => $result->results[0]->nip,
-				// 'namapeg' => $result->results[0]->namapeg,
-				// 'njab' => $result->results[0]->njab
+			'name' => $result->results[0]->name,
+			'mzpwd' => $result->results[0]->mzpwd,
+			'photo' => $result->results[0]->photo,
+			'level' => $result->results[0]->level,
+			'komp' => $result->results[0]->komp,
+            'unit' => $result->results[0]->unit,
+            'kuntp' => $result->results[0]->kuntp,
+            'kunkom' => $result->results[0]->kunkom,
+            'kununit' => $result->results[0]->kununit,
+            'kunsk' => $result->results[0]->kunsk,
+            'kunssk' => $result->results[0]->kunssk,
 		);
 
 		$this->session->set_userdata($data_session);
 		redirect(base_url('/'),'refresh');
 
-		// } else {
+		} else {
 
-		// 	$message = "Mohon Maaf, Anda tidak punya akses ke Halaman ini.\\nTry again.";
-		// 	echo "<script type='text/javascript'>alert('$message');</script>";
-		// 	// redirect('http://127.0.0.1','refresh');
+			$message = "Mohon Maaf, Anda tidak punya akses ke Halaman ini.\\nTry again.";
+			echo "<script type='text/javascript'>alert('$message');</script>";
+			// redirect('http://127.0.0.1','refresh');
 
-		// }
+		}
 
 	}
 
