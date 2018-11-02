@@ -118,7 +118,11 @@ class User extends MX_Controller {
 	public function logout()
 	{
 		$this->session->sess_destroy();
-		redirect(site_url('http://eoffice.kemendesa.go.id/'));
+		if (in_array($_SERVER['REMOTE_ADDR'], array('127.0.0.1', '::1'))) {
+			redirect('http://localhost/', 'refresh');
+		} else {
+			redirect('http://eoffice.kemendesa.go.id/', 'refresh');
+		}
 	}
 
 }
