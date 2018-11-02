@@ -118,7 +118,7 @@ class User extends MX_Controller {
 	public function logout()
 	{
 		$this->session->sess_destroy();
-		redirect(site_url('/'));
+		redirect(site_url('http://eoffice.kemendesa.go.id/'));
 	}
 
 }
