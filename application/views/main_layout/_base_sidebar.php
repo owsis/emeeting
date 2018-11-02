@@ -2,24 +2,21 @@
   <ul class="nav">
     <li class="nav-item nav-profile">
       <div class="nav-link">
-        <!-- <div class="user-wrapper">
+        <div class="user-wrapper">
           <div class="profile-image">
-            <img src="<?=base_url("assets/images/faces/face1.jpg")?>" alt="profile image">
-            <span class="mdi mdi-account-circle"></span>
+            <img src="<?=base_url("assets/images/logo-kemendesa.png")?>" alt="profile image">
+            <!-- <span class="mdi mdi-account-circle"></span> -->
           </div>
           <div class="text-wrapper">
-            <p class="profile-name"><?php echo $this->session->userdata('namapeg') ?></p>
+            <p class="profile-name"><?php echo $this->session->userdata('name') ?></p>
             <div>
               <small class="designation text-muted">
-                <?php 
-                $str = (strlen($this->session->userdata('njab')) > 15) ? substr($this->session->userdata('njab'), 0, 18).' ...' : $str;
-                echo $str;
-                ?>
+                <?php echo $this->session->userdata('nip')?>
               </small>
               <span class="status-indicator online"></span>
             </div>
           </div>
-        </div> -->
+        </div>
         <!-- <a href="javascript::void" class="btn btn-success btn-block" data-target="#tambahModal">
           <i class="menu-icon mdi mdi-paper"></i>
           Buat Jadwal
@@ -69,6 +66,12 @@
         </ul>
       </div>
     </li> -->
-    
   </ul>
+  <div class="nav-link" style="margin-top: 25px">
+    <a href="<?=site_url('user/logout')?>" class="btn btn-success btn-block" data-target="#tambahModal">
+      <i class="menu-icon mdi mdi-paper"></i>
+      Keluar
+      <i class="mdi mdi-logout"></i>
+    </a>
+  </div>
 </nav>
