@@ -145,20 +145,24 @@ class Welcome extends MX_Controller {
 
 	public function detail($code_r)
 	{
-
+		date_default_timezone_set('Asia/Jakarta');
+		$date = new DateTime();
+		$timestamp = $date->getTimestamp();
+		$data['test'] = $timestamp;
 		$this->db->where(
 			array(
 				'd004.code_r' => $code_r,
 			)
 		);
-		$this->db->where('start <= NOW()');
-		$this->db->where('end >= NOW()');
+		$this->db->where('start <=', date("Y-m-d H:i:s"));
+		$this->db->where('end >=', date("Y-m-d H:i:s"));
 		$this->db->limit(1);
 		$data['jadwal'] = $this->db->get($this->t_jadwal)->result();
+		// $query = $this->db->query('SELECT * FROM '.$this->t_jadwal.' WHERE code_r LIKE "%'.$code_r.'%" AND start >= NOW()');
+		// $data['jadwal'] = $query;
 
 		$this->db->where(array('d003.code_r' => $code_r));
 		$data['ruang'] = $this->db->get($this->t_ruangan)->result();
-		$data['no'] = 1;
 
 		$this->load->view('welcome_detail', $data);
 
