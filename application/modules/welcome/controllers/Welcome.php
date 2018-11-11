@@ -164,6 +164,25 @@ class Welcome extends MX_Controller {
 		$this->db->where(array('d003.code_r' => $code_r));
 		$data['ruang'] = $this->db->get($this->t_ruangan)->result();
 
+
+		$this->db->where('code_r', $code_r);
+		$events = $this->db->get($this->t_jadwal);
+		$data_events = array();
+		foreach($events->result() as $r) {
+			date_default_timezone_set('Asia/Jakarta');
+			$data_events[] = array(
+				"id" => $r->id,
+				"title" => $r->title,
+				"description" => $r->desc,
+				"code_r" => $r->code_r,
+				"start" => date(DATE_ISO8601, strtotime($r->start)),
+				"end" => date(DATE_ISO8601, strtotime($r->end)),
+				"color" => $r->color,
+				"textColor" => "#fff"
+			);
+		}
+		$data['get_data'] = json_encode($data_events);
+
 		$this->load->view('welcome_detail', $data);
 
 	}
