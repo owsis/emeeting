@@ -85,12 +85,17 @@
 			text-shadow: 2px 2px #FDFEFE;
 		}
 
-		h2 {
+		.h2 {
 			font-size: 60px;
 			/*font-family: "Times New Roman", Times, serif;*/
 			color: #34495E;
 			text-shadow: 2px 2px #FDFEFE;
 		}
+		h2 {
+			font-size: 18px;
+			text-transform: uppercase;
+		}
+
 		h4 {
 			font-size: 30px;
 			color: black;
@@ -205,7 +210,7 @@
 								?>
 								<center>
 									<h1>AGENDA HARI INI</h1>
-									<h2>"<?=strtoupper($key->title)?>"</h2>
+									<h2 class="h2">"<?=strtoupper($key->title)?>"</h2>
 									<p><?=strtoupper($key->desc)?></p>
 									<button style="height:80px;width:200px;font-size:50px">
 										<?=date('H:i', $start)?>
@@ -284,7 +289,8 @@
 		var data_js = <?php echo $get_data ?>;
 
 		$('#calendar').fullCalendar({
-			contentHeight: 500,
+			contentHeight: 450,
+			lang: 'id',
 			header: {
 				left: 'today',
 				center: 'title',
