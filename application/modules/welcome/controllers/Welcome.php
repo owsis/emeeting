@@ -52,7 +52,7 @@ class Welcome extends MX_Controller {
 		$data_ruangan['ruangan'] = $this->welcomedb->get_ruangan($this->t_ruangan);
 		// $data_ruangan['test'] = $this->ruangandb->get_last($this->table);
 
-		$data['content_view'] = $this->load->view('welcome_message', $data_ruangan, TRUE);
+		$data['content_view'] = $this->load->view('new_welcome_message', $data_ruangan, TRUE);
 
 		$data['menu'] = $this->load->view('main_layout/_base_sidebar', '', TRUE);
 		// $data['script_js'] = $this->load->view('ruangan-js', '', TRUE);

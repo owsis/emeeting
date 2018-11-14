@@ -9,14 +9,19 @@ class Dashboard extends MX_Controller {
 		$this->table = 'd003';
 		// $this->load->model('RuanganModel', 'ruangandb');
 		// $this->load->helper('form');
-		if($this->session->userdata('status') == ''){
-			redirect(base_url('/user'));
+		if ($this->session->userdata('nip') == null) {
+			redirect('http://eoffice.kemendesa.go.id');
 		}
 	}
 
 	public function index()
 	{
+		$data['content_view'] = $this->load->view('dashboard', '', TRUE);
 		$data['menu'] = $this->load->view('main_layout/_base_sidebar', '', TRUE);
+
+		$data['additional_assets_css'] = array(
+			'css/style-hover.css'
+		);
 
 		$this->load->view('main_layout/_base_layout', $data);
 	}
