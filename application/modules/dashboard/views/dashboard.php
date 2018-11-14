@@ -31,11 +31,12 @@
 					</div>
 					<div class="col-md-3">
 						<div style="width: 200px; height: 200px;">
+							<h6>Foto Profil</h6>
 							<?php if($data->userdata('photo') == '') {?>
-						<img src="<?=base_url("assets/images/logo-kemendesa.png")?>" style="width: 200px; height: 200px;">
-						<?php } else {?>
-						<img src="<?=$data->userdata('photo')?>" style="width: 200px; height: 200px;">
-						<?php } ?>
+								<img src="<?=base_url("assets/images/logo-kemendesa.png")?>" style="width: 200px; height: 200px;">
+							<?php } else {?>
+								<img src="<?=$data->userdata('photo')?>" style="width: 200px; height: 200px;">
+							<?php } ?>
 						</div>
 						
 					</div>
