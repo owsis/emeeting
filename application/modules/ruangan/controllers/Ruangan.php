@@ -13,9 +13,9 @@ class Ruangan extends MX_Controller {
 		$this->load->library('form_validation');
 
 		// if (in_array($_SERVER['REMOTE_ADDR'], array('127.0.0.1', '::1'))) {
-			// if ($this->session->userdata('timeout') <= time()) {
-			// 	redirect('http://eoffice.kemendesa.go.id');
-			// }
+			if ($this->session->userdata('timeout') <= time()) {
+				redirect('http://eoffice.kemendesa.go.id');
+			}
 		// } else {
 		// 	if ($this->session->userdata('timeout') <= time()) {
 		// 		redirect('http://127.0.0.1');
@@ -194,7 +194,7 @@ class Ruangan extends MX_Controller {
 	public function jadwal_store()
 	{
 		
-		$this->form_validation->set_rules('nip_r', 'Nip Pemesan', 'required');
+		$this->form_validation->set_rules('nip', 'Nip Pemesan', 'required');
 		$this->form_validation->set_rules('code_r', 'Ruangan', 'required');
 		$this->form_validation->set_rules('title', 'Jadwal Rapat', 'required');
 		$this->form_validation->set_rules('desc', 'Deskripsi Rapat', 'required');
