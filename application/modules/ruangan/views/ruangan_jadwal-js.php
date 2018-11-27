@@ -69,10 +69,6 @@
 				$('#edit_modal input[name=start]').val(moment(event.start).format('YYYY-MM-DD HH:mm:ss'));
 				$('#edit_modal input[name=end]').val(moment(event.end).format('YYYY-MM-DD HH:mm:ss'));
 				$('#edit_modal select[name=color]').val(event.color);
-				<?php $nip_jadwal = ?> event.id;
-				<?php
-				$this->session->set_userdata('nip_jadwal', $nip_jadwal);
-				?>
 			}
 		});
 
