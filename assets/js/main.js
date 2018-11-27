@@ -32,7 +32,11 @@ function setMenuActive(id_menu){
 	localStorage.setItem('menuActive', id_menu);
 }
 
-
+function close_window() {
+  if (confirm("Close Window?")) {
+    close();
+  }
+}
 
 $( "#target" ).submit(function( event ) {
   alert( "Handler for .submit() called." );

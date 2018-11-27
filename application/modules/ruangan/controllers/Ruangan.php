@@ -13,9 +13,9 @@ class Ruangan extends MX_Controller {
 		$this->load->library('form_validation');
 
 		// if (in_array($_SERVER['REMOTE_ADDR'], array('127.0.0.1', '::1'))) {
-			if ($this->session->userdata('timeout') <= time()) {
-				redirect('http://eoffice.kemendesa.go.id');
-			}
+			// if ($this->session->userdata('timeout') <= time()) {
+			// 	redirect('http://eoffice.kemendesa.go.id');
+			// }
 		// } else {
 		// 	if ($this->session->userdata('timeout') <= time()) {
 		// 		redirect('http://127.0.0.1');
@@ -48,7 +48,8 @@ class Ruangan extends MX_Controller {
 		$this->form_validation->set_rules('kapasitas_r', 'Kapasitas Ruangan', 'required');
 		$this->form_validation->set_rules('fasilitas_r', 'Fasilitas Ruangan', 'required');
 		$this->form_validation->set_rules('admin_r', 'Admin Ruangan', 'required');
-		$this->form_validation->set_rules('email_r', 'Email Admin Ruangan', 'required|valid_email');
+		$this->form_validation->set_rules('email1_r', 'Email Admin Ruangan', 'required|valid_email');
+		$this->form_validation->set_rules('email2_r', 'Email Admin Ruangan', 'valid_email');
 		$this->form_validation->set_rules('phone_r', 'Tlp. Admin Ruangan', 'required');
 		// $this->form_validation->set_rules('img_r', 'Foto Ruangan', 'required');
 
@@ -84,7 +85,8 @@ class Ruangan extends MX_Controller {
 				$data['kapasitas_r'] = $this->input->post('kapasitas_r');
 				$data['fasilitas_r'] = $this->input->post('fasilitas_r');
 				$data['admin_r'] = $this->input->post('admin_r');
-				$data['email_r'] = $this->input->post('email_r');
+				$data['email1_r'] = $this->input->post('email1_r');
+				$data['email2_r'] = $this->input->post('email2_r');
 				$data['phone_r'] = $this->input->post('phone_r');
 
 				$upload_data = $this->upload->data();
@@ -121,6 +123,7 @@ class Ruangan extends MX_Controller {
 			date_default_timezone_set('Asia/Jakarta');
 			$data_events[] = array(
 				"id" => $r->id,
+				"nip" => $r->nip,
 				"title" => $r->title,
 				"description" => $r->desc,
 				"code_r" => $r->code_r,
@@ -151,12 +154,13 @@ class Ruangan extends MX_Controller {
 
 	public function jadwal_update($id)
 	{
+		$this->form_validation->set_rules('nip_r', 'Nip Pemesan', 'required');
 		$this->form_validation->set_rules('code_r', 'Ruangan', 'required');
 		$this->form_validation->set_rules('title', 'Jadwal Rapat', 'required');
 		$this->form_validation->set_rules('desc', 'Deskripsi Rapat', 'required');
-		$this->form_validation->set_rules('color', 'Color', 'required');
 		$this->form_validation->set_rules('start', 'Start', 'required');
 		$this->form_validation->set_rules('end', 'End', 'required');
+		$this->form_validation->set_rules('color', 'Color', 'required');
 
 		if ($this->form_validation->run() == FALSE) {
 
@@ -166,12 +170,15 @@ class Ruangan extends MX_Controller {
 
 		} else {
 
+			$data['nip'] = $this->input->post('nip');
 			$data['code_r'] = $this->input->post('code_r');
 			$data['title'] = $this->input->post('title');
 			$data['desc'] = $this->input->post('desc');
 			$data['start'] = $this->input->post('start');
 			$data['end'] = $this->input->post('end');
 			$data['color'] = $this->input->post('color');
+			$data['status'] = 'order';
+			$data['created_at'] = date('Y-m-d H:i:s');
 
 
 			$this->ruangandb->update(
@@ -187,12 +194,13 @@ class Ruangan extends MX_Controller {
 	public function jadwal_store()
 	{
 		
+		$this->form_validation->set_rules('nip_r', 'Nip Pemesan', 'required');
 		$this->form_validation->set_rules('code_r', 'Ruangan', 'required');
 		$this->form_validation->set_rules('title', 'Jadwal Rapat', 'required');
 		$this->form_validation->set_rules('desc', 'Deskripsi Rapat', 'required');
-		$this->form_validation->set_rules('color', 'Color', 'required');
 		$this->form_validation->set_rules('start', 'Start', 'required');
 		$this->form_validation->set_rules('end', 'End', 'required');
+		$this->form_validation->set_rules('color', 'Color', 'required');
 
 		if ($this->form_validation->run() == FALSE) {
 
@@ -201,12 +209,15 @@ class Ruangan extends MX_Controller {
 			redirect('/ruangan/jadwal/' . $this->input->post('code_r'), 'refresh');
 
 		} else {
+			$data['nip'] = $this->input->post('nip');
 			$data['code_r'] = $this->input->post('code_r');
 			$data['title'] = $this->input->post('title');
 			$data['desc'] = $this->input->post('desc');
 			$data['start'] = $this->input->post('start');
 			$data['end'] = $this->input->post('end');
 			$data['color'] = $this->input->post('color');
+			$data['status'] = 'order';
+			$data['created_at'] = date('Y-m-d H:i:s');
 
 			$this->ruangandb->insert($this->tableJadwal, $data);
 			redirect('/ruangan/jadwal/' . $this->input->post('code_r'), 'refresh');

@@ -62,11 +62,17 @@
 				$('#edit_modal').modal('show');
 				document.getElementById('form_update').action = "<?=site_url('ruangan/jadwal_update/')?>" + event.id;
 				$('#edit_modal input[name=id]').val(event.id);
+				$('#edit_modal input[name=nip]').val(event.nip);
+				$('#edit_modal input[name=code_r]').val(event.code_r);
 				$('#edit_modal input[name=title]').val(event.title);
 				document.getElementById("desc").value = event.description;
 				$('#edit_modal input[name=start]').val(moment(event.start).format('YYYY-MM-DD HH:mm:ss'));
 				$('#edit_modal input[name=end]').val(moment(event.end).format('YYYY-MM-DD HH:mm:ss'));
 				$('#edit_modal select[name=color]').val(event.color);
+				<?php $nip_jadwal = ?> event.id;
+				<?php
+				$this->session->set_userdata('nip_jadwal', $nip_jadwal);
+				?>
 			}
 		});
 

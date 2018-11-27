@@ -1,14 +1,14 @@
-<div class="row">
+<!-- <div class="row">
 	<div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
 		<button class="btn btn-success btn-block" data-toggle="modal" data-target="#tambahModal">
 			Tambah Ruangan Baru
 			<i class="mdi mdi-plus"></i>
 		</button>
 	</div>
-</div>
+</div> -->
 
 <!-- Modal -->
-<div class="modal fade" id="tambahModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="tambahModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<form class="forms-sample" action="<?=site_url('ruangan/store')?>" method="POST" enctype="multipart/form-data" accept-charset="utf-8">
@@ -70,7 +70,7 @@
 
 		</div>
 	</div>
-</div>
+</div> -->
 <!-- End Modal -->
 
 <div class="card-columns">
@@ -85,14 +85,14 @@
 					Fasilitas : <?=$ruang->fasilitas_r?>
 				</p>
 				<div class="row">
-				<button class="btn btn-primary mr-2" data-toggle="modal" data-target="#detailModal<?=$ruang->id?>">Ubah</button>
+				<!-- <button class="btn btn-primary mr-2" data-toggle="modal" data-target="#detailModal<?=$ruang->id?>">Ubah</button> -->
 				<a href="<?=site_url('ruangan/jadwal/' . $ruang->code_r)?>" class="btn btn-success">Lihat Jadwal</a>
 				</div>
 			</div>
 		</div>
 
 		<!-- Modal -->
-		<div class="modal fade" id="detailModal<?=$ruang->id?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<!-- <div class="modal fade" id="detailModal<?=$ruang->id?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<form class="forms-sample" action="<?=site_url('ruangan/store')?>" method="POST" enctype="multipart/form-data" accept-charset="utf-8">
@@ -154,7 +154,7 @@
 
 				</div>
 			</div>
-		</div>
+		</div> -->
 		<!-- End Modal -->
 	<?php } ?>
 </div>

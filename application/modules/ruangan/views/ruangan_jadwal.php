@@ -1,22 +1,22 @@
 <?php foreach ($ruangan as $r) { ?>
-<h3><?=$r->name_r?></h3>
-<table>
-	<tr>
-		<td>Lantai</td>
-		<td>&nbsp;:</td>
-		<td><?=$r->lantai_r?></td>
-	</tr>
-	<tr>
-		<td>Fasilitas</td>
-		<td>&nbsp;:</td>
-		<td><?=$r->fasilitas_r?></td>
-	</tr>
-	<tr>
-		<td>Kapasitas</td>
-		<td>&nbsp;:</td>
-		<td><?=$r->kapasitas_r?> org</td>
-	</tr>
-</table>
+	<h3><?=$r->name_r?></h3>
+	<table>
+		<tr>
+			<td>Lantai</td>
+			<td>&nbsp;:</td>
+			<td><?=$r->lantai_r?></td>
+		</tr>
+		<tr>
+			<td>Fasilitas</td>
+			<td>&nbsp;:</td>
+			<td><?=$r->fasilitas_r?></td>
+		</tr>
+		<tr>
+			<td>Kapasitas</td>
+			<td>&nbsp;:</td>
+			<td><?=$r->kapasitas_r?> org</td>
+		</tr>
+	</table>
 <?php } ?>
 
 <div class="card">
@@ -39,6 +39,12 @@
 
 					<div class="form-group">
 						<div class="alert alert-danger" style="display: none;"></div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-6">NIP Pemesan<span class="required"> * </span></label>
+						<div class="col-sm-10">
+							<input type="text" name="nip" class="form-control" value="<?=$this->session->userdata('nip')?>" readonly required>
+						</div>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-sm-6">Ruangan<span class="required"> * </span></label>
@@ -93,9 +99,7 @@
 
 				</div>
 				<div class="modal-footer">
-					<a href="javascript::void" class="btn default" data-dismiss="modal">Cancel</a>
-					<a class="btn btn-danger delete_calendar" style="display: none;">Delete</a>
-					<button class="btn btn-success">Submit</button>
+					<button class="btn btn-success">Simpan</button>
 				</div>
 			</form>
 		</div>
@@ -115,14 +119,20 @@
 				</div>
 				<div class="modal-body">
 
-<input type="hidden" name="id" class="form-control" readonly required>
+					<input type="hidden" name="id" class="form-control" readonly required>
 					<div class="form-group">
 						<div class="alert alert-danger" style="display: none;"></div>
 					</div>
 					<div class="form-group">
+						<label class="control-label col-sm-6">NIP Pemesan<span class="required"> * </span></label>
+						<div class="col-sm-10">
+							<input type="text" name="nip" class="form-control" readonly required>
+						</div>
+					</div>
+					<div class="form-group">
 						<label class="control-label col-sm-6">Ruangan<span class="required"> * </span></label>
 						<div class="col-sm-10">
-							<input type="text" name="code_r" class="form-control" value="<?=$code_r?>" readonly required>
+							<input type="text" name="code_r" class="form-control" readonly required>
 						</div>
 					</div>
 
@@ -171,10 +181,11 @@
 					</div>
 
 				</div>
-				<div class="modal-footer">
-					<a href="javascript::void" class="btn default" data-dismiss="modal">Cancel</a>
-					<a class="btn btn-danger delete_calendar" style="display: none;">Delete</a>
-					<button class="btn btn-success">Submit</button>
+				<div class="modal-footer" id="modal-footer">
+					<?=$this->session->userdata('nip_jadwal')?>
+					<!-- <a href="javascript::void" class="btn default" data-dismiss="modal">Cancel</a> -->
+					<a href="" class="btn btn-danger">Batalkan</a>
+					<button class="btn btn-success">Simpan</button>
 				</div>
 			</form>
 		</div>

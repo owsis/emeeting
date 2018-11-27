@@ -13,20 +13,10 @@
 						<address>
 							<p>NIP</p>
 							<p class="font-weight-bold"><?=$data->userdata('nip')?></p>
-							<p>Komp</p>
-							<p class="font-weight-bold"><?=$data->userdata('komp')?></p>
-							<p>Unit</p>
-							<p class="font-weight-bold"><?=$data->userdata('unit')?></p>
-							<p>Kuntp</p>
-							<p class="font-weight-bold"><?=$data->userdata('kuntp')?></p>
-							<p>Kunkom</p>
-							<p class="font-weight-bold"><?=$data->userdata('kunkom')?></p>
-							<p>Kun Unit</p>
-							<p class="font-weight-bold"><?=$data->userdata('kununit')?></p>
-							<p>Kun SK</p>
-							<p class="font-weight-bold"><?=$data->userdata('kunsk')?></p>
-							<p>Kun SSK</p>
-							<p class="font-weight-bold"><?=$data->userdata('kunssk')?></p>
+							<p>Nama Lengkap</p>
+							<p class="font-weight-bold"><?=$data->userdata('name')?>,&nbsp;<?=$data->userdata('glblk')?></p>
+							<p>Jabatan</p>
+							<p class="font-weight-bold"><?=$data->userdata('njab')?></p>
 						</address>
 					</div>
 					<div class="col-md-3">

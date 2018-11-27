@@ -9,7 +9,7 @@ class Dashboard extends MX_Controller {
 		$this->table = 'd003';
 		// $this->load->model('RuanganModel', 'ruangandb');
 		// $this->load->helper('form');
-		if ($this->session->userdata('nip') == null) {
+		if ($this->session->userdata('timeout') <= time()) {
 			redirect('http://eoffice.kemendesa.go.id');
 		}
 	}

@@ -8,14 +8,52 @@ class User extends MX_Controller {
 		parent::__construct();
 		$this->t_user = 'd001';
 		$this->load->model('UserModel', 'userdb');
+		$this->load->helper('form', 'url');
+		$this->load->library('form_validation');
 	}
 
 	public function index()
 	{
-		if($this->session->userdata('status') == '1'){
-			redirect(base_url('/ruangan'));
+		// if($this->session->userdata('status') == '1'){
+		// 	redirect(base_url('/ruangan'));
+		// }
+		$data['md5'] = md5('adminqwerty');
+		$this->load->view('user-login', $data);
+	}
+
+	public function login_admin()
+	{
+		$this->form_validation->set_rules('email', 'Email', 'required|valid_email');
+		$this->form_validation->set_rules('password', 'Password', 'required');
+
+		if ($this->form_validation->run() == FALSE) {
+
+			$message = "Gunakan email yang valid \\nTry again.";
+			echo "<script type='text/javascript'>alert('$message');</script>";
+			redirect('/user','refresh');
+
+		} else {
+			$email = $this->input->post('email');
+			$pass = md5($this->input->post('password'));
+
+			$login = $this->userdb->login_admin($this->t_user, $email, $pass);
+			if ($login) {
+
+				$data_session = array(
+					'status' => 1,
+					'user' => $email
+				);
+				$this->session->set_userdata($data_session);
+				redirect(base_url('/admin'),'refresh');
+
+			} else {
+
+				$message = "Username and/or Password incorrect.\\nTry again.";
+				echo "<script type='text/javascript'>alert('$message');</script>";
+				redirect(base_url('/user'),'refresh');
+			}
+			
 		}
-		$this->load->view('user-login');
 	}
 
 	public function login()
@@ -74,7 +112,7 @@ class User extends MX_Controller {
 
 		// $cek = $this->userdb->login($this->t_user, $where)->num_rows();
 		// if ($cek > 0) {
-			
+
 		// 	$data_session = array(
 		// 		'nik' => $nik,
 		// 		'status' => '1'
@@ -92,36 +130,38 @@ class User extends MX_Controller {
 
 	public function postCURL($_url, $_param){
 
-        $postData = '';
+		$postData = '';
         //create name value pairs seperated by &
-        foreach($_param as $k => $v) 
-        { 
-          $postData .= $k . '='.$v.'&'; 
-        }
-        rtrim($postData, '&');
+		foreach($_param as $k => $v) 
+		{ 
+			$postData .= $k . '='.$v.'&'; 
+		}
+		rtrim($postData, '&');
 
 
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL,$_url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-        curl_setopt($ch, CURLOPT_HEADER, false); 
-        curl_setopt($ch, CURLOPT_POST, count($postData));
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);    
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL,$_url);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+		curl_setopt($ch, CURLOPT_HEADER, false); 
+		curl_setopt($ch, CURLOPT_POST, count($postData));
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);    
 
-        $output = curl_exec($ch);
+		$output = curl_exec($ch);
 
-        curl_close($ch);
+		curl_close($ch);
 
-        return $output;
-    }
+		return $output;
+	}
 
 	public function logout()
 	{
 		$this->session->sess_destroy();
 		if (in_array($_SERVER['REMOTE_ADDR'], array('127.0.0.1', '::1'))) {
 			redirect('http://localhost/', 'refresh');
+			echo "<script>window.close();</script>";
 		} else {
 			redirect('http://eoffice.kemendesa.go.id/', 'refresh');
+			echo "<script>window.close();</script>";
 		}
 	}
 

@@ -16,6 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<!-- Jika sedang di localhost -->
 		<link rel="stylesheet" href="<?php echo base_url("assets/vendors/bootstrap/bootstrap.min.css") ?>" />
 		<link rel="stylesheet" href="<?php echo base_url("assets/vendors/select2/select2.min.css") ?>" />
+		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.css"/>
 	<?php } else {?>
 		<!-- Jika akses dari server -->
 		<link
@@ -23,6 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 		crossorigin="anonymous" />
+		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.css"/>
 
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css"  />
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gijgo/1.9.10/combined/css/gijgo.min.css"  />
@@ -257,6 +259,7 @@ if (!empty($additional_assets_css)) {
 		<script src="<?=base_url("assets/js/moment.min.js")?>" ></script>
 		<script src="<?=base_url("assets/js/jquery-debounce.js")?>" ></script>
 		<script src="<?=base_url("assets/js/main.js")?>" ></script>
+		<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.js"></script>
 		<?php if (in_array($_SERVER['REMOTE_ADDR'], array('127.0.0.1', '::1'))) {?>
 
 			<!-- Jika sedang di localhost -->

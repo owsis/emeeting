@@ -92,17 +92,12 @@ class Welcome extends MX_Controller {
 			'timeout' => $timeout,
 			'status' => '1',
 			'nip' => $nip,
-			'name' => $result->results[0]->name,
-			'mzpwd' => $result->results[0]->mzpwd,
-			'photo' => $result->results[0]->photo,
-			'level' => $result->results[0]->level,
-			'komp' => $result->results[0]->komp,
-            'unit' => $result->results[0]->unit,
-            'kuntp' => $result->results[0]->kuntp,
-            'kunkom' => $result->results[0]->kunkom,
-            'kununit' => $result->results[0]->kununit,
-            'kunsk' => $result->results[0]->kunsk,
-            'kunssk' => $result->results[0]->kunssk,
+			'name' => $result->results[0]->nama,
+			'glblk' => $result->results[0]->glblk,
+			'ktlahir' => $result->results[0]->ktlahir,
+			'tlahir' => $result->results[0]->tlahir,
+			'aljalan' => $result->results[0]->aljalan,
+            'njab' => $result->results[0]->njab
 		);
 
 		$this->session->set_userdata($data_session);
