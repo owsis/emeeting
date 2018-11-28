@@ -76,19 +76,24 @@
 <div class="card-columns">
 	<?php foreach ($ruangan as $ruang) {?>
 		<div class="card">
-			<img class="card-img-top" src="<?php echo base_url("uploaded/images/ruangan/" . $ruang->img_r); ?>" alt="Card image cap">
+			<figure class="snip1174 white">
+					<img class="card-img-top" src="<?php echo base_url("uploaded/images/ruangan/" . $ruang->img_r); ?>" alt="Card image cap">
+				<figcaption>
+					<a href="<?=site_url('ruangan/display/'. $ruang->code_r)?>" class="btn-img-hover">Lihat Display</a>
+				</figcaption>
+			</figure>
 			<div class="card-body">
-				<a href="<?=site_url('welcome/detail/'. $ruang->code_r)?>">
+				<!-- <a href="<?=site_url('ruangan/display/'. $ruang->code_r)?>"> -->
 					<h5 class="card-title"><?=$ruang->name_r?></h5>
-				</a>
+				<!-- </a> -->
 				<p class="card-text">
 					Lantai <?=$ruang->lantai_r?> <br>
 					Kapasitas <?=$ruang->kapasitas_r?> org <br>
 					Fasilitas : <?=$ruang->fasilitas_r?>
 				</p>
 				<div class="row">
-				<!-- <button class="btn btn-primary mr-2" data-toggle="modal" data-target="#detailModal<?=$ruang->id?>">Ubah</button> -->
-				<a href="<?=site_url('ruangan/jadwal/' . $ruang->code_r)?>" class="btn btn-success">Lihat Jadwal</a>
+					<!-- <button class="btn btn-primary mr-2" data-toggle="modal" data-target="#detailModal<?=$ruang->id?>">Ubah</button> -->
+					<a href="<?=site_url('ruangan/jadwal/' . $ruang->code_r)?>" class="btn btn-success">Lihat Jadwal</a>
 				</div>
 			</div>
 		</div>
