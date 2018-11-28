@@ -78,7 +78,9 @@
 		<div class="card">
 			<img class="card-img-top" src="<?php echo base_url("uploaded/images/ruangan/" . $ruang->img_r); ?>" alt="Card image cap">
 			<div class="card-body">
-				<h5 class="card-title"><?=$ruang->name_r?></h5>
+				<a href="<?=site_url('welcome/detail/'. $ruang->code_r)?>">
+					<h5 class="card-title"><?=$ruang->name_r?></h5>
+				</a>
 				<p class="card-text">
 					Lantai <?=$ruang->lantai_r?> <br>
 					Kapasitas <?=$ruang->kapasitas_r?> org <br>
