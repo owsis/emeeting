@@ -1,5 +1,5 @@
 <?php foreach ($ruangan as $r) { ?>
-	<h3><?=$r->name_r?></h3>
+	<h3><?=$r->name_r?></h3> 
 	<table>
 		<tr>
 			<td>Lantai</td>
@@ -68,17 +68,17 @@
 					</div>
 
 					<div class="form-group">
-						<label for="color" class="col-sm-2 control-label">Warna Jadwal</label>
+						<label for="color" class="col-sm-6 control-label">Warna Tag</label>
 						<div class="col-sm-10">
 							<select name="color" class="form-control">
-								<option value="">Choose</option>
-								<option style="color:#3F51B5;" value="#3F51B5">&#9724; Indigo</option>
-								<option style="color:#40E0D0;" value="#40E0D0">&#9724; Turquoise</option>
-								<option style="color:#009688;" value="#009688">&#9724; Teal</option>                       
-								<option style="color:#FFEB3B;" value="#FFEB3B">&#9724; Yellow</option>
-								<option style="color:#FF9800;" value="#FF9800">&#9724; Orange</option>
-								<option style="color:#F44336;" value="#F44336">&#9724; Red</option>
-								<option style="color:#000;" value="#000">&#9724; Black</option>
+								<option value="">Pilih Warna Tag</option>
+								<option style="color:#3F51B5;" value="#3F51B5">&#10004; Indigo</option>
+								<option style="color:#40E0D0;" value="#40E0D0">&#10004; Turquoise</option>
+								<option style="color:#009688;" value="#009688">&#10004; Teal</option>                       
+								<option style="color:#FFEB3B;" value="#FFEB3B">&#10004; Yellow</option>
+								<option style="color:#FF9800;" value="#FF9800">&#10004; Orange</option>
+								<option style="color:#F44336;" value="#F44336">&#10004; Red</option>
+								<option style="color:#000;" value="#000">&#10004; Black</option>
 							</select>
 						</div>
 					</div>
@@ -151,17 +151,16 @@
 					</div>
 
 					<div class="form-group">
-						<label for="color" class="col-sm-2 control-label">Warna Judul</label>
+						<label for="color" class="col-sm-6 control-label">Warna Tag</label>
 						<div class="col-sm-10">
 							<select name="color" class="form-control">
-								<option value="">Warna Judul</option>
-								<option style="color:#3F51B5;" value="#3F51B5">&#9724; Indigo</option>
-								<option style="color:#40E0D0;" value="#40E0D0">&#9724; Turquoise</option>
-								<option style="color:#009688;" value="#009688">&#9724; Teal</option>                       
-								<option style="color:#FFEB3B;" value="#FFEB3B">&#9724; Yellow</option>
-								<option style="color:#FF9800;" value="#FF9800">&#9724; Orange</option>
-								<option style="color:#F44336;" value="#F44336">&#9724; Red</option>
-								<option style="color:#000;" value="#000">&#9724; Black</option>
+								<option style="color:#3F51B5;" value="#3F51B5">&#10004; Indigo</option>
+								<option style="color:#40E0D0;" value="#40E0D0">&#10004; Turquoise</option>
+								<option style="color:#009688;" value="#009688">&#10004; Teal</option>                       
+								<option style="color:#FFEB3B;" value="#FFEB3B">&#10004; Yellow</option>
+								<option style="color:#FF9800;" value="#FF9800">&#10004; Orange</option>
+								<option style="color:#F44336;" value="#F44336">&#10004; Red</option>
+								<option style="color:#000;" value="#000">&#10004; Black</option>
 							</select>
 						</div>
 					</div>
@@ -182,7 +181,6 @@
 
 				</div>
 				<div class="modal-footer" id="modal-footer">
-					<?=$this->session->userdata('nip_jadwal')?>
 					<!-- <a href="javascript::void" class="btn default" data-dismiss="modal">Cancel</a> -->
 					<a href="" class="btn btn-danger">Batalkan</a>
 					<button class="btn btn-success">Simpan</button>

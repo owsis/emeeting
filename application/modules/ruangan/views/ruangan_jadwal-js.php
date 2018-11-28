@@ -28,6 +28,7 @@
 	$(document).ready(function() {
 
 		var data_js = <?php echo $get_data ?>;
+		var currentTime = moment();
 
 		$('#calendar').fullCalendar({
 			lang: 'id',
@@ -69,11 +70,24 @@
 				$('#edit_modal input[name=start]').val(moment(event.start).format('YYYY-MM-DD HH:mm:ss'));
 				$('#edit_modal input[name=end]').val(moment(event.end).format('YYYY-MM-DD HH:mm:ss'));
 				$('#edit_modal select[name=color]').val(event.color);
+				if (event.nip != <?=$this->session->userdata('nip')?> || currentTime > event.end) {
+					$('#modal-footer').hide();
+					$('#edit_modal input[name=title]').attr('readonly', 'true');
+					document.getElementById("desc").setAttribute('readonly', 'true');
+					$('#edit_modal input[name=start]').attr('readonly', 'true');
+					$('#edit_modal input[name=end]').attr('readonly', 'true');
+					$('#edit_modal select[name=color]').prop('disabled', 'disabled');
+				} else {
+					$('#modal-footer').show()
+					$('#edit_modal input[name=title]').removeAttr('readonly');
+					document.getElementById("desc").removeAttribute('readonly', 'true');
+					$('#edit_modal input[name=start]').removeAttr('readonly');
+					$('#edit_modal input[name=end]').removeAttr('readonly');
+					$('#edit_modal select[name=color]').prop('disabled', false);
+				}
 			}
 		});
 
 	});
-
-	
 
 </script>
