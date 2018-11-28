@@ -213,6 +213,8 @@ class Ruangan extends MX_Controller {
 			redirect('/ruangan/jadwal/' . $this->input->post('code_r'), 'refresh');
 
 		} else {
+			date_default_timezone_set('Asia/Jakarta');
+			
 			$data['nip'] = $this->input->post('nip');
 			$data['code_r'] = $this->input->post('code_r');
 			$data['title'] = $this->input->post('title');
