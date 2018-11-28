@@ -36,6 +36,9 @@ class Ruangan extends MX_Controller {
 
 		$data['menu'] = $this->load->view('main_layout/_base_sidebar', '', TRUE);
 		$data['script_js'] = $this->load->view('ruangan-js', '', TRUE);
+		$data['additional_assets_css'] = array(
+			'css/style-hover.css'
+		);
 
 		$this->load->view('main_layout/_base_layout', $data);
 	}
@@ -135,6 +138,7 @@ class Ruangan extends MX_Controller {
 		}
 		$data_js['get_data'] = json_encode($data_events);
 
+		// $data['angular_js'] = $this->load->view('ruangan_jadwal-angular', '', TRUE);
 		$data['script_js'] = $this->load->view('ruangan_jadwal-js', $data_js, TRUE);
 
 		$data['menu'] = $this->load->view('main_layout/_base_sidebar', '', TRUE);
@@ -154,7 +158,7 @@ class Ruangan extends MX_Controller {
 
 	public function jadwal_update($id)
 	{
-		$this->form_validation->set_rules('nip_r', 'Nip Pemesan', 'required');
+		$this->form_validation->set_rules('nip', 'Nip Pemesan', 'required');
 		$this->form_validation->set_rules('code_r', 'Ruangan', 'required');
 		$this->form_validation->set_rules('title', 'Jadwal Rapat', 'required');
 		$this->form_validation->set_rules('desc', 'Deskripsi Rapat', 'required');
@@ -222,6 +226,50 @@ class Ruangan extends MX_Controller {
 			$this->ruangandb->insert($this->tableJadwal, $data);
 			redirect('/ruangan/jadwal/' . $this->input->post('code_r'), 'refresh');
 		}
+
+	}
+
+	public function display($code_r)
+	{
+		date_default_timezone_set('Asia/Jakarta');
+		$date = new DateTime();
+		$timestamp = $date->getTimestamp();
+		$data['test'] = $timestamp;
+		$this->db->where(
+			array(
+				'd004.code_r' => $code_r,
+			)
+		);
+		$this->db->where('start <=', date("Y-m-d H:i:s"));
+		$this->db->where('end >=', date("Y-m-d H:i:s"));
+		$this->db->limit(1);
+		$data['jadwal'] = $this->db->get($this->tableJadwal)->result();
+		// $query = $this->db->query('SELECT * FROM '.$this->t_jadwal.' WHERE code_r LIKE "%'.$code_r.'%" AND start >= NOW()');
+		// $data['jadwal'] = $query;
+
+		$this->db->where(array('d003.code_r' => $code_r));
+		$data['ruang'] = $this->db->get($this->table)->result();
+
+
+		$this->db->where('code_r', $code_r);
+		$events = $this->db->get($this->tableJadwal);
+		$data_events = array();
+		foreach($events->result() as $r) {
+			date_default_timezone_set('Asia/Jakarta');
+			$data_events[] = array(
+				"id" => $r->id,
+				"title" => $r->title,
+				"description" => $r->desc,
+				"code_r" => $r->code_r,
+				"start" => date(DATE_ISO8601, strtotime($r->start)),
+				"end" => date(DATE_ISO8601, strtotime($r->end)),
+				"color" => $r->color,
+				"textColor" => "#fff"
+			);
+		}
+		$data['get_data'] = json_encode($data_events);
+
+		$this->load->view('ruangan_display', $data);
 
 	}
 
