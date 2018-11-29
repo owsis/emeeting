@@ -11,12 +11,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<title>Kemendesa - Emeeting Room</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-
 	<?php if (in_array($_SERVER['REMOTE_ADDR'], array('127.0.0.1', '::1'))) {?>
 		<!-- Jika sedang di localhost -->
 		<link rel="stylesheet" href="<?php echo base_url("assets/vendors/bootstrap/bootstrap.min.css") ?>" />
 		<link rel="stylesheet" href="<?php echo base_url("assets/vendors/select2/select2.min.css") ?>" />
-		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.css"/>
+		<link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/dataTables.bootstrap4.min.css')?>"/>
 	<?php } else {?>
 		<!-- Jika akses dari server -->
 		<link
@@ -259,7 +258,8 @@ if (!empty($additional_assets_css)) {
 		<script src="<?=base_url("assets/js/moment.min.js")?>" ></script>
 		<script src="<?=base_url("assets/js/jquery-debounce.js")?>" ></script>
 		<script src="<?=base_url("assets/js/main.js")?>" ></script>
-		<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.js"></script>
+		<script type="text/javascript" src="<?=base_url('assets/js/dataTables.min.js')?>"></script>
+		<!-- <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.js"></script> -->
 		<?php if (in_array($_SERVER['REMOTE_ADDR'], array('127.0.0.1', '::1'))) {?>
 
 			<!-- Jika sedang di localhost -->
