@@ -36,10 +36,7 @@ class Admin extends MX_Controller {
 
 		$data['content_view'] = $this->load->view('list_jadwal', $data_admin, TRUE);
 		$data['menu'] = $this->load->view('main_layout/_base_sidebar', '', TRUE);
-		$data['additional_assets_js'] = array(
-			'https://code.jquery.com/jquery-3.3.1.js',
-			'https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js'
-		);
+		
 		$data['script_js'] = $this->load->view('list_jadwal-js', '', TRUE);
 
 		$this->load->view('main_layout/_base_layout', $data);
