@@ -18,7 +18,7 @@ class Admin extends MX_Controller {
 	public function index()
 	{
 		date_default_timezone_set('Asia/Jakarta');
-		$data_admin['ruangan'] = $this->admindb->get_ruangan($this->table);
+		$data_admin['ruangan'] = $this->admindb->get_data($this->table);
 		$data_admin['test'] = date('Y-m-d H:i:s');
 
 		$data['content_view'] = $this->load->view('admin', $data_admin, TRUE);
