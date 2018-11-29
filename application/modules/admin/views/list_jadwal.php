@@ -4,7 +4,7 @@
 			<div class="card-body">
 				<h3 class="card-title">List Jadwal</h3>
 				<p class="card-description"></p>
-				<table id="example" class="table" style="width:100%">
+				<table id="list-jadwal" class="table" style="width:100%">
 					<thead>
 						<tr>
 							<th>Aksi</th>

@@ -1,6 +1,6 @@
 <script type="text/javascript">
 	$(document).ready(function() {
-		$('#example').DataTable({
+		$('#list-jadwal').DataTable({
 			
             "scrollX": true,
             "language": {
