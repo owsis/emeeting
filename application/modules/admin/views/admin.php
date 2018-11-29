@@ -146,6 +146,8 @@
 								<div class="form-group">
 									<label>Foto Ruangan</label>
 									<input type="file" name="img_r" class="file-upload-default">
+									<br>
+									<img src="<?php echo base_url("uploaded/images/ruangan/" . $ruang->img_r); ?>" style="height: 200px; border-radius: 4px; margin: 5px auto;">
 									<div class="input-group col-xs-12">
 										<input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
 										<span class="input-group-append">
@@ -156,8 +158,8 @@
 
 							</div>
 							<div class="modal-footer">
-								<button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
-								<button type="submit" class="btn btn-success mr-2">Edit</button>
+								<button type="button" class="btn btn-light" data-dismiss="modal">Batal</button>
+								<button type="submit" class="btn btn-success mr-2">Ubah</button>
 							</div>
 						</form>
 
