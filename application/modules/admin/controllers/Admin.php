@@ -33,7 +33,6 @@ class Admin extends MX_Controller {
 	{
 		$data_admin['ruang'] = $this->admindb->get_data($this->table);
 		$data_admin['jadwal'] = $this->admindb->get_order_by($this->table_jadwal);
-		$data_admin['test'] = date('Y-m-d H:i:s');
 
 		$data['content_view'] = $this->load->view('list_jadwal', $data_admin, TRUE);
 		$data['menu'] = $this->load->view('main_layout/_base_sidebar', '', TRUE);
