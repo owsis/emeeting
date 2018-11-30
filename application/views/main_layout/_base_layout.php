@@ -254,23 +254,25 @@ if (!empty($additional_assets_css)) {
 		</div>
 
 
-		<script src="<?=base_url("assets/vendors/jquery/jquery-3.3.1.min.js")?>"></script>
-		<script src="<?=base_url("assets/js/moment.min.js")?>" ></script>
 		<script src="<?=base_url("assets/js/jquery-debounce.js")?>" ></script>
 		<script src="<?=base_url("assets/js/main.js")?>" ></script>
-		<script type="text/javascript" src="<?=base_url('assets/js/dataTables.min.js')?>"></script>
+		<!-- <script type="text/javascript" src="<?=base_url('assets/js/dataTables.min.js')?>"></script> -->
 		<!-- <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.js"></script> -->
 		<?php if (in_array($_SERVER['REMOTE_ADDR'], array('127.0.0.1', '::1'))) {?>
 
 			<!-- Jika sedang di localhost -->
+			<script src="<?=base_url("assets/vendors/jquery/jquery-3.3.1.min.js")?>"></script>
+			<script src="<?=base_url("assets/js/moment.min.js")?>" ></script>
 			<script src="<?=base_url("assets/vendors/bootstrap/bootstrap.min.js")?>" ></script>
 			<script src="<?=base_url("assets/vendors/icheck/icheck.min.js")?>" ></script>
 			<script src="<?=base_url("assets/vendors/select2/select2.min.js")?>" ></script>
 		<?php } else {?>
 
 			<!-- Jika akses dari server -->
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+			<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.js"></script>
+
 
 			<script
 			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
