@@ -16,38 +16,23 @@ class Surat extends MX_Controller {
 
 	public function jadwal_store()
 	{
-		
-		$this->form_validation->set_rules('nip', 'Nip Pemesan', 'required');
-		$this->form_validation->set_rules('code_r', 'Ruangan', 'required');
-		$this->form_validation->set_rules('title', 'Jadwal Rapat', 'required');
-		$this->form_validation->set_rules('desc', 'Deskripsi Rapat', 'required');
-		$this->form_validation->set_rules('start', 'Start', 'required');
-		$this->form_validation->set_rules('end', 'End', 'required');
-		$this->form_validation->set_rules('color', 'Color', 'required');
 
-		if ($this->form_validation->run() == FALSE) {
+			$data = json_decode(file_get_contents('php://input'),true);
 
-			$data['status_json'] = 500;
-			$data['message'] = 'Terdapat kesalahan pada input data';
-			echo json_encode($data);
+			// print_r($data);
 
-		} else {
-			date_default_timezone_set('Asia/Jakarta');
-			
-			$data['nip'] = $this->input->post('nip');
-			$data['code_r'] = $this->input->post('code_r');
-			$data['title'] = $this->input->post('title');
-			$data['desc'] = $this->input->post('desc');
-			$data['start'] = $this->input->post('start');
-			$data['end'] = $this->input->post('end');
-			$data['color'] = $this->input->post('color');
-			$data['status'] = 'order';
-			$data['created_at'] = date('Y-m-d H:i:s');
+			$response = $this->suratdb->insert($this->tableJadwal, $data);
 
-			$this->suratdb->insert($this->tableJadwal, $data);
-			echo json_encode($data, 200);
-		}
+			if ($response) {
+				$result = json_encode($data);
+			// } else {
+			// 	$data_result['status'] = 500;
+			// 	$data_result['message'] = 'Silakan cek kembali data yang Anda input';
 
+			// 	$result = json_encode($data_result);
+			}
+
+			echo $result;
 	}
 
 

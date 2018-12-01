@@ -34,7 +34,8 @@ class SuratModel extends CI_Model
 
 		$this->db->insert($table, $param);
 
-		return $this->db->insert_id();
+		// return $this->db->insert_id();
+		return true;
 	}
 	public function update($table, $data, $where, $value)
 	{
