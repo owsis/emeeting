@@ -16,23 +16,26 @@ class Surat extends MX_Controller {
 
 	public function jadwal_store()
 	{
+		date_default_timezone_set('Asia/Jakarta');
 
-			$data = json_decode(file_get_contents('php://input'),true);
+		$data = json_decode(file_get_contents('php://input'),true);
+		$data['status'] = 'order';
+		$data['created_at'] = date('Y-m-d H:i:s');
 
 			// print_r($data);
 
-			$response = $this->suratdb->insert($this->tableJadwal, $data);
+		$response = $this->suratdb->insert($this->tableJadwal, $data);
 
-			if ($response) {
-				$result = json_encode($data);
+		if ($response) {
+			$result = json_encode($data);
 			// } else {
 			// 	$data_result['status'] = 500;
 			// 	$data_result['message'] = 'Silakan cek kembali data yang Anda input';
 
 			// 	$result = json_encode($data_result);
-			}
+		}
 
-			echo $result;
+		echo $result;
 	}
 
 
