@@ -275,5 +275,11 @@ class Ruangan extends MX_Controller {
 
 	}
 
+	public function api_get_ruangan()
+	{
+		$data = $this->ruangandb->get_ruangan($this->table);
+		echo json_encode($data);
+	}
+
 
 }

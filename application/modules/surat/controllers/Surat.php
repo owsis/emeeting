@@ -22,7 +22,30 @@ class Surat extends MX_Controller {
 		$data['status'] = 'order';
 		$data['created_at'] = date('Y-m-d H:i:s');
 
-			// print_r($data);
+		$sender = $data['nip'];
+		$receiver = explode(",", $data['receiver']);
+		$length_receiver = count($receiver);
+		// echo json_encode($receiver);
+
+		for ($i=0; $i < $length_receiver; $i++) { 
+			$pengirim = $sender;
+			$penerima = $receiver[$i];
+			$pesan = $data['desc'];
+			$darinama = $data['name'];
+			$url_notif = 'http://eoffice.kemendesa.go.id/simpeg/api/apiabsensi/kirimpesan';
+
+			$data_pesan = array(
+				'pengirim' => 'Admin Emeeting',
+				'penerima' => $penerima,
+				'aplikasi' => 'emeeting',
+				'pesan'	=> $pesan,
+				'darinama' => $darinama,
+				'key' => 's1mp3g2018'
+			);
+
+			$this->postCURL($url_notif, $data_pesan);
+			// echo $penerima . 'berhasil, <br>';
+		}
 
 		$response = $this->suratdb->insert($this->tableJadwal, $data);
 
@@ -36,6 +59,31 @@ class Surat extends MX_Controller {
 		}
 
 		echo $result;
+	}
+
+	public function postCURL($_url, $_param){
+
+		$postData = '';
+        //create name value pairs seperated by &
+		foreach($_param as $k => $v) 
+		{ 
+			$postData .= $k . '='.$v.'&'; 
+		}
+		rtrim($postData, '&');
+
+
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL,$_url);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+		curl_setopt($ch, CURLOPT_HEADER, false); 
+		curl_setopt($ch, CURLOPT_POST, count($postData));
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);    
+
+		$output = curl_exec($ch);
+
+		curl_close($ch);
+
+		return $output;
 	}
 
 
