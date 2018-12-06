@@ -6,7 +6,7 @@ class User extends MX_Controller {
 	public function __construct() 
 	{
 		parent::__construct();
-		$this->t_user = 'd001';
+		$this->t_user = 'em_d001';
 		$this->load->model('UserModel', 'userdb');
 		$this->load->helper('form', 'url');
 		$this->load->library('form_validation');
@@ -37,20 +37,31 @@ class User extends MX_Controller {
 			$pass = md5($this->input->post('password'));
 
 			$login = $this->userdb->login_admin($this->t_user, $email, $pass);
-			if ($login) {
-
-				$data_session = array(
-					'status' => 1,
-					'user' => $email
-				);
-				$this->session->set_userdata($data_session);
-				redirect(base_url('/admin'),'refresh');
-
-			} else {
+			
+			if ($login == false) {
 
 				$message = "Username and/or Password incorrect.\\nTry again.";
 				echo "<script type='text/javascript'>alert('$message');</script>";
 				redirect(base_url('/user'),'refresh');
+
+			} else {
+				$data_session = array();
+				foreach ($login as $key) {
+
+					$data_session = array(
+						'status' => 1,
+						'email' => $key->email,
+						'role' => $key->role,
+						'notif' => $key->notifications
+					);
+					
+				}
+				$this->session->set_userdata($data_session);
+				echo $this->session->userdata('status');
+				echo $this->session->userdata('email');
+				echo $this->session->userdata('notif');
+				echo $this->session->userdata('role');
+				redirect(base_url('/admin'),'refresh');
 			}
 			
 		}

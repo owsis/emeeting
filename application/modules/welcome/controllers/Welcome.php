@@ -22,9 +22,9 @@ class Welcome extends MX_Controller {
 	public function __construct() 
 	{
 		parent::__construct();
-		$this->t_ruangan = 'd003';
-		$this->t_jadwal = 'd004';
-		$this->t_user = 'd001';
+		$this->t_ruangan = 'em_d003';
+		$this->t_jadwal = 'em_d004';
+		$this->t_user = 'em_d001';
 		$this->load->model('WelcomeModel', 'welcomedb'); 
 
 		// if (in_array($_SERVER['REMOTE_ADDR'], array('127.0.0.1', '::1'))) {

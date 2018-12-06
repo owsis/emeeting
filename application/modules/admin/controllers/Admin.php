@@ -6,8 +6,8 @@ class Admin extends MX_Controller {
 	public function __construct() 
 	{
 		parent::__construct();
-		$this->table = 'd003';
-		$this->table_jadwal = 'd004';
+		$this->table = 'em_d003';
+		$this->table_jadwal = 'em_d004';
 		$this->load->model('AdminModel', 'admindb');
 		// $this->load->helper('form');
 		if ($this->session->userdata('status') != 1) {

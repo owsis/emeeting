@@ -6,8 +6,8 @@ class Surat extends MX_Controller {
 	public function __construct() 
 	{
 		parent::__construct();
-		$this->table = 'd003';
-		$this->tableJadwal = 'd004';
+		$this->table = 'em_d003';
+		$this->tableJadwal = 'em_d004';
 		$this->load->model('SuratModel', 'suratdb');
 		$this->load->helper('form', 'url');
 		$this->load->library('form_validation');
