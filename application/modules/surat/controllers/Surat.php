@@ -31,7 +31,7 @@ class Surat extends MX_Controller {
 			$pengirim = $sender;
 			$penerima = $receiver[$i];
 			$pesan = $data['desc'];
-			$darinama = $data['name'];
+			// $darinama = $data['name'];
 			$url_notif = 'http://eoffice.kemendesa.go.id/simpeg/api/apiabsensi/kirimpesan';
 
 			$data_pesan = array(
@@ -39,7 +39,7 @@ class Surat extends MX_Controller {
 				'penerima' => $penerima,
 				'aplikasi' => 'emeeting',
 				'pesan'	=> $pesan,
-				'darinama' => $darinama,
+				'darinama' => 'Admin Emeeting',
 				'key' => 's1mp3g2018'
 			);
 
