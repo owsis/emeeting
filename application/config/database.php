@@ -74,12 +74,12 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 if (in_array($_SERVER['REMOTE_ADDR'], array('127.0.0.1', '::1'))) {
-
+// Jika sedang di localhost 
 	$db['default'] = array(
 		'dsn'	=> '',
 		'hostname' => 'localhost',
-		'username' => 'webmaster',
-		'password' => '@kemendesa',
+		'username' => 'root',
+		'password' => '',
 		'database' => 'c6simpegbaru',
 		'dbdriver' => 'mysqli',
 		'dbprefix' => '',
@@ -98,12 +98,14 @@ if (in_array($_SERVER['REMOTE_ADDR'], array('127.0.0.1', '::1'))) {
 	);
 
 } else {
-
+// Jika sedang di server
 	$db['default'] = array(
 		'dsn'	=> '',
 		'hostname' => 'localhost',
-		'username' => 'root',
-		'password' => '3UKzcF6x69~W',
+		// 'username' => 'root',
+		// 'password' => '3UKzcF6x69~W',
+		'username' => 'webmaster',
+		'password' => '@kemendesa',
 		'database' => 'c6simpegbaru',
 		'dbdriver' => 'mysqli',
 		'dbprefix' => '',
