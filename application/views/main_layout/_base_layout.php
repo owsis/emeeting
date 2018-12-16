@@ -59,6 +59,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<ul class="navbar-nav navbar-nav-left header-links d-none d-md-flex">
 				</ul>
 				<ul class="navbar-nav navbar-nav-right">
+					<?php if($this->session->userdata('role')) {?>
 					<!-- <li class="nav-item dropdown">
 						<a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
 							<i class="mdi mdi-file-document-box"></i>
@@ -114,10 +115,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</a>
 						</div>
 					</li> -->
-					<!-- <li class="nav-item dropdown">
+					<li class="nav-item dropdown">
 						<a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
 							<i class="mdi mdi-bell"></i>
-							<span class="count">4</span>
+							<?php // if ($this->session->userdata('notif') > 0) {?>
+								<!-- <span class="count"><?=$this->session->userdata('notif')?></span> -->
+							<?php // } ?>
 						</a>
 						<div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
 							<a class="dropdown-item">
@@ -168,7 +171,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								</div>
 							</a>
 						</div>
-					</li> -->
+					</li>
 					<!-- <li class="nav-item dropdown d-none d-xl-inline-block">
 						<a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
 						<span class="profile-text">Hello, <?php echo $this->session->userdata('namapeg') ?></span>
