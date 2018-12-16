@@ -9,48 +9,36 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Kemendesa - Emeeting Room</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 	<?php if (in_array($_SERVER['REMOTE_ADDR'], array('127.0.0.1', '::1'))) {?>
 		<!-- Jika sedang di localhost -->
 		<link rel="stylesheet" href="<?php echo base_url("assets/vendors/bootstrap/bootstrap.min.css") ?>" />
 		<link rel="stylesheet" href="<?php echo base_url("assets/vendors/select2/select2.min.css") ?>" />
 		<link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/dataTables.bootstrap4.min.css')?>"/>
+	    <link rel="stylesheet" href="<?=base_url('assets/css/jquery-ui.css')?>">
 	<?php } else {?>
 		<!-- Jika akses dari server -->
-		<link
-		rel="stylesheet"
-		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-		crossorigin="anonymous" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
 		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.css"/>
-
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"/>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css"  />
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gijgo/1.9.10/combined/css/gijgo.min.css"  />
 
-
-	<?php }?>
+	<?php } ?>
 
 	<link rel="stylesheet" href="<?php echo base_url("assets/vendors/iconfonts/mdi/css/materialdesignicons.min.css") ?>" />
-
-
-<?php
-
-if (!empty($additional_assets_css)) {
-	foreach ($additional_assets_css as $key => $value) {
-		if ($value != null or $value != '') {?>
-				<link rel="stylesheet" href="<?php echo base_url('assets/' . $value) ?>" />
-			<?php }
-	}
-}
-?>
-
-
-
 	<link rel="stylesheet" href="<?php echo base_url("assets/css/style.css") ?>" />
 	<link rel="stylesheet" href="<?php echo base_url("assets/css/main_style.css") ?>" />
-
 	<link rel="shortcut icon" href="<?php echo base_url("assets/images/logo-kemendesa.png") ?>" />
+
+	<?php if (!empty($additional_assets_css)) {
+		foreach ($additional_assets_css as $key => $value) {
+			if ($value != null or $value != '') {?>
+				<link rel="stylesheet" href="<?php echo base_url('assets/' . $value) ?>" />
+			<?php }
+		}
+	}
+	?>
 
 </head>
 
@@ -219,38 +207,43 @@ if (!empty($additional_assets_css)) {
 						</div>
 					</li> -->
 					<li class="nav-item">
-						<!-- <span class="profile-text">Hi, <?php echo $this->session->userdata('name') ?></span> -->
+						<span class="profile-text">
+							<?php if($this->session->userdata('role') == 1) {
+								echo 'Hi, Administrator';
+							} else {
+								echo '';
+							}
+							?> 
+						</span>
 					</li>
-				</ul>
-				<button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
-					<span class="icon-menu"></span>
-				</button>
+				<?php } ?>
+			</ul>
+			<button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+				<span class="icon-menu"></span>
+			</button>
+		</div>
+	</nav>
+
+	<div class="container-fluid page-body-wrapper">
+
+		<?=$menu?>
+
+		<div class="main-panel">
+			<div class="content-wrapper">
+				<?=(!empty($content_view)) ? $content_view : '';?>
 			</div>
-		</nav>
 
-		<div class="container-fluid page-body-wrapper">
-
-			<?=$menu?>
-
-			<div class="main-panel">
-				<div class="content-wrapper">
-					<?=(!empty($content_view)) ? $content_view : '';?>
-				</div>
-
-				<footer class="footer">
-					<div class="container-fluid clearfix">
-						<span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2018
-							<a href="javascript::void" target="_blank">Kemendesa</a>. All rights reserved.</span>
+			<footer class="footer">
+				<div class="container-fluid clearfix">
+					<span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2018
+						<a href="javascript::void" target="_blank">Kemendesa</a>. All rights reserved.</span>
 							<!-- <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with
 								<i class="mdi mdi-heart text-danger"></i>
 							</span> -->
 						</div>
 					</footer>
-
 				</div>
-
 			</div>
-
 		</div>
 
 
@@ -266,13 +259,16 @@ if (!empty($additional_assets_css)) {
 			<script src="<?=base_url("assets/vendors/bootstrap/bootstrap.min.js")?>" ></script>
 			<script src="<?=base_url("assets/vendors/icheck/icheck.min.js")?>" ></script>
 			<script src="<?=base_url("assets/vendors/select2/select2.min.js")?>" ></script>
+			<script src="<?=base_url('assets/js/dataTables.min.js')?>"></script>
+		    <script src="<?=base_url('assets/js/jquery-ui.min.js')?>"></script>
+		    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
 		<?php } else {?>
 
 			<!-- Jika akses dari server -->
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
 			<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.js"></script>
-
+			<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
 			<script
 			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
@@ -289,21 +285,18 @@ if (!empty($additional_assets_css)) {
 
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css"></script>
 
+		<?php }
 
+		if (!empty($additional_assets_js)) {
+			foreach ($additional_assets_js as $key => $value) {
+				if ($value != null or $value != '') {?>
+					<script type="text/javascript" src="<?php echo base_url('assets/' . $value) ?>" ></script>
+				<?php }
+			}
+		}
 
-		<?php }?>
-		<?php
-
-if (!empty($additional_assets_js)) {
-	foreach ($additional_assets_js as $key => $value) {
-		if ($value != null or $value != '') {?>
-						<script type="text/javascript" src="<?php echo base_url('assets/' . $value) ?>" ></script>
-					<?php }
-	}
-}
-?>
-
-<?=(!empty($script_js)) ? $script_js : '';?>
+		echo (!empty($script_js)) ? $script_js : '';
+		?>
 
 	</body>
 

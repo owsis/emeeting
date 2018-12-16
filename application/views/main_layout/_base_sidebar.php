@@ -24,10 +24,17 @@
             <!-- <span class="mdi mdi-account-circle"></span> -->
           </div>
           <div class="text-wrapper">
-            <p class="profile-name"><?php echo $this->session->userdata('user') ?></p>
+            <p class="profile-name">
+              <?php if($this->session->userdata('user') == 'admin@admin.com') {
+                  echo 'Administrator';
+                } else {
+                  echo '-';
+                }
+              ?>
+            </p>
             <div>
               <small class="designation text-muted">
-                <?php echo $this->session->userdata('nip')?>
+                <?php echo $this->session->userdata('user')?>
               </small>
               <span class="status-indicator online"></span>
             </div>
@@ -76,12 +83,12 @@
         <span class="menu-title">Dashboard</span>
       </a>
     </li>
-    <li class="nav-item">
+    <!-- <li class="nav-item">
       <a class="nav-link" href="<?php echo site_url('admin/list_jadwal') ?>">
         <i class="menu-icon mdi mdi-table-of-contents"></i>
         <span class="menu-title">List Jadwal</span>
       </a>
-    </li>
+    </li> -->
     <!-- End Admin Menu -->
 
   <?php }?>
