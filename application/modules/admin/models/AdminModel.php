@@ -61,6 +61,16 @@ class AdminModel extends CI_Model
         $query = $this->db->get();
         return $query->num_rows();
     }
+
+    public function search_ruangan($ruangan)
+    {
+        $this->db->where('kununit !=', '00');
+        $this->db->where('ksatker !=', '00');
+        $this->db->like('nunker', $ruangan, 'both');
+        $this->db->order_by('nunker', 'ASC');
+        $this->db->limit(8);
+        return $this->db->get('ref_unkerja')->result();
+    }
  
     public function count_all($table)
     {

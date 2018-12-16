@@ -20,7 +20,7 @@
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
-				<div class="modal-body">
+				<div class="modal-body ui-front">
 
 					<div class="form-group">
 						<label for="name_r">Nama Ruangan</label>
@@ -40,9 +40,10 @@
 					</div>
 					<div class="form-group">
 						<label for="admin_r">Penanggung Jawab Ruangan (PJ)</label>
-						<input type="text" class="form-control" name="admin_r" placeholder="Penanggung Jawab" required> 
+						<input id="nunker" type="text" class="form-control" name="nunker" placeholder="Penanggung Jawab" required> 
+						<input id="kunker" type="hidden" name="kunker_r" />
 					</div>
-					<div class="form-group">
+					<!-- <div class="form-group">
 						<label for="email_r">Email1 PJ</label>
 						<input type="text" class="form-control" name="email1_r" placeholder="Email 1" required=""> 
 					</div>
@@ -53,7 +54,7 @@
 					<div class="form-group">
 						<label for="phone_r">No. Handphone PJ</label>
 						<input type="text" class="form-control" name="phone_r" placeholder="No. Handphone" required> 
-					</div>
+					</div> -->
 
 					<div class="form-group">
 						<label>Foto Ruangan</label>
@@ -91,12 +92,12 @@
 				</p>
 				<div class="row">
 					<button class="btn btn-primary mr-2" data-toggle="modal" data-target="#detailModal<?=$ruang->id?>">Ubah</button>
-					<a href="<?=site_url('ruangan/jadwal/' . $ruang->code_r)?>" class="btn btn-success">Lihat Jadwal</a>
+					<!-- <a href="<?=site_url('ruangan/jadwal/' . $ruang->code_r)?>" class="btn btn-success">Lihat Jadwal</a> -->
 				</div>
 			</div>
 		</div>
 
-		<!-- Modal -->
+		<!-- Edit Modal -->
 		<div class="modal fade" id="detailModal<?=$ruang->id?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
@@ -128,20 +129,21 @@
 								</div>
 								<div class="form-group">
 									<label for="admin_r">Penanggung Jawab Ruangan (PJ)</label>
-									<input type="text" class="form-control" name="admin_r" value="<?=$ruang->admin_r?>" placeholder="Penanggung Jawab" required> 
+									<input id="nunker-edit" type="text" class="form-control" placeholder="Penanggung Jawab" name="nunker-edit" required> 
+									<input id="kunker-edit" type="hidden" name="kunker_r">
 								</div>
-								<div class="form-group">
+								<!-- <div class="form-group">
 									<label for="email_r">Email1 PJ</label>
 									<input type="text" class="form-control" name="email1_r" value="<?=$ruang->email1_r?>" placeholder="Email" required> 
 								</div>
 								<div class="form-group">
 									<label for="email_r">Email2 PJ</label>
 									<input type="text" class="form-control" name="email2_r" value="<?=$ruang->email2_r?>" placeholder="Email" required> 
-								</div>
-								<div class="form-group">
+								</div> -->
+								<!-- <div class="form-group">
 									<label for="phone_r">No. Handphone PJ</label>
 									<input type="text" class="form-control" name="phone_r" value="<?=$ruang->phone_r?>" placeholder="No. Handphone" required> 
-								</div>
+								</div> -->
 
 								<div class="form-group">
 									<label>Foto Ruangan</label>
@@ -166,6 +168,6 @@
 					</div>
 				</div>
 			</div>
-			<!-- End Modal -->
+			<!-- Edit Modal -->
 		<?php } ?>
 	</div>
