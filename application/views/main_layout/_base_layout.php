@@ -18,7 +18,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	    <link rel="stylesheet" href="<?=base_url('assets/css/jquery-ui.css')?>">
 	<?php } else {?>
 		<!-- Jika akses dari server -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+		<link rel="stylesheet" href="<?php echo base_url("assets/vendors/bootstrap/bootstrap.min.css") ?>" />
 		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.css"/>
 		<link rel="stylesheet" href="<?=base_url('assets/css/jquery-ui.css')?>">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css"  />
