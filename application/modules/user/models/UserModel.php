@@ -16,7 +16,9 @@ class UserModel extends CI_Model
 
 		$sql = $this->db->get($table);
 		if ($sql->num_rows() == 1) {
-			return true;
+			return $sql->result();
+		} else {
+			return false;
 		}
 	}
 

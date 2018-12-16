@@ -57,10 +57,10 @@ class User extends MX_Controller {
 					
 				}
 				$this->session->set_userdata($data_session);
-				echo $this->session->userdata('status');
-				echo $this->session->userdata('email');
-				echo $this->session->userdata('notif');
-				echo $this->session->userdata('role');
+				// echo $this->session->userdata('status');
+				// echo $this->session->userdata('email');
+				// echo $this->session->userdata('notif');
+				// echo $this->session->userdata('role');
 				redirect(base_url('/admin'),'refresh');
 			}
 			
