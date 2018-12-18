@@ -15,7 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<link rel="stylesheet" href="<?php echo base_url("assets/vendors/bootstrap/bootstrap.min.css") ?>" />
 		<link rel="stylesheet" href="<?php echo base_url("assets/vendors/select2/select2.min.css") ?>" />
 		<link rel="stylesheet" type="text/css" href="<?=base_url('assets/css/dataTables.bootstrap4.min.css')?>"/>
-	    <link rel="stylesheet" href="<?=base_url('assets/css/jquery-ui.css')?>">
+		<link rel="stylesheet" href="<?=base_url('assets/css/jquery-ui.css')?>">
 	<?php } else {?>
 		<!-- Jika akses dari server -->
 		<link rel="stylesheet" href="<?php echo base_url("assets/vendors/bootstrap/bootstrap.min.css") ?>" />
@@ -120,58 +120,58 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<i class="mdi mdi-bell"></i>
 							<?php // if ($this->session->userdata('notif') > 0) {?>
 								<!-- <span class="count"><?=$this->session->userdata('notif')?></span> -->
-							<?php // } ?>
-						</a>
-						<div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
-							<a class="dropdown-item">
-								<p class="mb-0 font-weight-normal float-left">You have 4 new notifications
-								</p>
-								<span class="badge badge-pill badge-warning float-right">View all</span>
+								<?php // } ?>
 							</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item preview-item">
-								<div class="preview-thumbnail">
-									<div class="preview-icon bg-success">
-										<i class="mdi mdi-alert-circle-outline mx-0"></i>
-									</div>
-								</div>
-								<div class="preview-item-content">
-									<h6 class="preview-subject font-weight-medium text-dark">Application Error</h6>
-									<p class="font-weight-light small-text">
-										Just now
+							<div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+								<a class="dropdown-item">
+									<p class="mb-0 font-weight-normal float-left">You have 4 new notifications
 									</p>
-								</div>
-							</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item preview-item">
-								<div class="preview-thumbnail">
-									<div class="preview-icon bg-warning">
-										<i class="mdi mdi-comment-text-outline mx-0"></i>
+									<span class="badge badge-pill badge-warning float-right">View all</span>
+								</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item preview-item">
+									<div class="preview-thumbnail">
+										<div class="preview-icon bg-success">
+											<i class="mdi mdi-alert-circle-outline mx-0"></i>
+										</div>
 									</div>
-								</div>
-								<div class="preview-item-content">
-									<h6 class="preview-subject font-weight-medium text-dark">Settings</h6>
-									<p class="font-weight-light small-text">
-										Private message
-									</p>
-								</div>
-							</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item preview-item">
-								<div class="preview-thumbnail">
-									<div class="preview-icon bg-info">
-										<i class="mdi mdi-email-outline mx-0"></i>
+									<div class="preview-item-content">
+										<h6 class="preview-subject font-weight-medium text-dark">Application Error</h6>
+										<p class="font-weight-light small-text">
+											Just now
+										</p>
 									</div>
-								</div>
-								<div class="preview-item-content">
-									<h6 class="preview-subject font-weight-medium text-dark">New user registration</h6>
-									<p class="font-weight-light small-text">
-										2 days ago
-									</p>
-								</div>
-							</a>
-						</div>
-					</li>
+								</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item preview-item">
+									<div class="preview-thumbnail">
+										<div class="preview-icon bg-warning">
+											<i class="mdi mdi-comment-text-outline mx-0"></i>
+										</div>
+									</div>
+									<div class="preview-item-content">
+										<h6 class="preview-subject font-weight-medium text-dark">Settings</h6>
+										<p class="font-weight-light small-text">
+											Private message
+										</p>
+									</div>
+								</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item preview-item">
+									<div class="preview-thumbnail">
+										<div class="preview-icon bg-info">
+											<i class="mdi mdi-email-outline mx-0"></i>
+										</div>
+									</div>
+									<div class="preview-item-content">
+										<h6 class="preview-subject font-weight-medium text-dark">New user registration</h6>
+										<p class="font-weight-light small-text">
+											2 days ago
+										</p>
+									</div>
+								</a>
+							</div>
+						</li>
 					<!-- <li class="nav-item dropdown d-none d-xl-inline-block">
 						<a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
 						<span class="profile-text">Hello, <?php echo $this->session->userdata('namapeg') ?></span>
@@ -239,68 +239,81 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<footer class="footer">
 				<div class="container-fluid clearfix">
 					<span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2018
-						<a href="javascript::void" target="_blank">Kemendesa</a>. All rights reserved.</span>
-							<!-- <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with
-								<i class="mdi mdi-heart text-danger"></i>
-							</span> -->
-						</div>
-					</footer>
+						<a href="javascript::void" target="_blank">Kemendesa</a>. 
+						All rights reserved.
+					</span>
+					<!-- <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with
+						<i class="mdi mdi-heart text-danger"></i>
+					</span> -->
+					<div id="jaklcp-chat-container"></div>
 				</div>
-			</div>
+			</footer>
 		</div>
+	</div>
+</div>
 
+<!-- live chat 3 widget -->
+<script type="text/javascript">
+	(function(w, d, s, u) {
+		w.id = 1; w.lang = ''; w.cName = ''; w.cEmail = ''; w.cMessage = ''; w.lcjUrl = u;
+		var h = d.getElementsByTagName(s)[0], j = d.createElement(s);
+		j.async = true; j.src = 'http://eoffice.kemendesa.go.id/chat/js/jaklcpchat.js';
+		h.parentNode.insertBefore(j, h);
+	})(window, document, 'script', 'http://eoffice.kemendesa.go.id/chat/');
+</script>
+<!-- end live chat 3 widget -->
 
-		<script src="<?=base_url("assets/js/jquery-debounce.js")?>" ></script>
-		<script src="<?=base_url("assets/js/main.js")?>" ></script>
-		<!-- <script type="text/javascript" src="<?=base_url('assets/js/dataTables.min.js')?>"></script> -->
-		<!-- <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.js"></script> -->
-		<?php if (in_array($_SERVER['REMOTE_ADDR'], array('127.0.0.1', '::1'))) {?>
+<script src="<?=base_url("assets/js/jquery-debounce.js")?>" ></script>
+<script src="<?=base_url("assets/js/main.js")?>" ></script>
+<!-- <script type="text/javascript" src="<?=base_url('assets/js/dataTables.min.js')?>"></script> -->
+<!-- <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.js"></script> -->
+<?php if (in_array($_SERVER['REMOTE_ADDR'], array('127.0.0.1', '::1'))) {?>
 
-			<!-- Jika sedang di localhost -->
-			<script src="<?=base_url("assets/vendors/jquery/jquery-3.3.1.min.js")?>"></script>
-			<script src="<?=base_url("assets/js/moment.min.js")?>" ></script>
-			<script src="<?=base_url("assets/vendors/bootstrap/bootstrap.min.js")?>" ></script>
-			<script src="<?=base_url("assets/vendors/icheck/icheck.min.js")?>" ></script>
-			<script src="<?=base_url("assets/vendors/select2/select2.min.js")?>" ></script>
-			<script src="<?=base_url('assets/js/dataTables.min.js')?>"></script>
-		    <script src="<?=base_url('assets/js/jquery-ui.min.js')?>"></script>
-		    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
-		<?php } else {?>
+	<!-- Jika sedang di localhost -->
+	<script src="<?=base_url("assets/vendors/jquery/jquery-3.3.1.min.js")?>"></script>
+	<script src="<?=base_url("assets/js/moment.min.js")?>" ></script>
+	<script src="<?=base_url("assets/vendors/bootstrap/bootstrap.min.js")?>" ></script>
+	<script src="<?=base_url("assets/vendors/icheck/icheck.min.js")?>" ></script>
+	<script src="<?=base_url("assets/vendors/select2/select2.min.js")?>" ></script>
+	<script src="<?=base_url('assets/js/dataTables.min.js')?>"></script>
+	<script src="<?=base_url('assets/js/jquery-ui.min.js')?>"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
+<?php } else {?>
 
-			<!-- Jika akses dari server -->
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
-			<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.js"></script>
-			<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+	<!-- Jika akses dari server -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
-			<script
-			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-			integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-			crossorigin="anonymous"></script>
+	<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+	integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+	crossorigin="anonymous"></script>
 
-			<script
-			src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-			integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-			crossorigin="anonymous"></script>
+	<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+	crossorigin="anonymous"></script>
 
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/gijgo/1.9.10/combined/js/gijgo.min.js"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.2/icheck.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gijgo/1.9.10/combined/js/gijgo.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.2/icheck.min.js"></script>
 
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css"></script>
 
+<?php }
+
+if (!empty($additional_assets_js)) {
+	foreach ($additional_assets_js as $key => $value) {
+		if ($value != null or $value != '') {?>
+			<script type="text/javascript" src="<?php echo base_url('assets/' . $value) ?>" ></script>
 		<?php }
+	}
+}
 
-		if (!empty($additional_assets_js)) {
-			foreach ($additional_assets_js as $key => $value) {
-				if ($value != null or $value != '') {?>
-					<script type="text/javascript" src="<?php echo base_url('assets/' . $value) ?>" ></script>
-				<?php }
-			}
-		}
+echo (!empty($script_js)) ? $script_js : '';
+?>
 
-		echo (!empty($script_js)) ? $script_js : '';
-		?>
+</body>
 
-	</body>
-
-	</html>
+</html>
