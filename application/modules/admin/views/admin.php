@@ -160,7 +160,7 @@
 
 							</div>
 							<div class="modal-footer">
-								<button type="button" class="btn btn-light" data-dismiss="modal">Batal</button>
+								<a href="<?=site_url('admin/delete_ruangan/' . $ruang->id)?>" class="btn btn-danger">Hapus</a>
 								<button type="submit" class="btn btn-success mr-2">Ubah</button>
 							</div>
 						</form>

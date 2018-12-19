@@ -189,6 +189,12 @@ class Admin extends MX_Controller {
 		}
 	}
 
+	public function delete_ruangan($id)
+	{
+		$this->admindb->delete($this->table, 'id =' . $id);
+		redirect('/admin', 'refresh');
+	}
+
 	// public function list_jadwal()
 	// {
 	// 	$data_admin['ruang'] = $this->admindb->get_data($this->table);
