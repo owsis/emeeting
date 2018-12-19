@@ -7,8 +7,8 @@
     $('#nunker').autocomplete({
       source: data_nunker,
       select: function (event, ui) {
-        $('input[name=nunker]').val(ui.item.nunker);
-        $('input[name=kunker]').val(ui.item.kunker);
+        $('input[name=nunker_r]').val(ui.item.nunker);
+        $('input[name=kunker_r]').val(ui.item.kunker);
       },
       response: function (event, ui) {
         if(ui.content.length === 0){
@@ -20,11 +20,11 @@
       
     });
 
-    $('input[name=nunker-edit]').autocomplete({
+    $('input[name=nunker_r-edit]').autocomplete({
       source: data_nunker,
       select: function (event, ui) {
-        $('input[name=nunker-edit]').val(ui.item.nunker);
-        $('input[name=kunker]').val(ui.item.kunker);
+        $('input[name=nunker_r-edit]').val(ui.item.nunker);
+        $('input[name=kunker_r-edit]').val(ui.item.kunker);
       },
       response: function (event, ui) {
         if(ui.content.length === 0){

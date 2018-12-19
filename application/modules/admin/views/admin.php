@@ -12,7 +12,7 @@
 <div class="modal fade" id="tambahModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
-			<form class="forms-sample" action="<?=site_url('ruangan/store')?>" method="POST" enctype="multipart/form-data" accept-charset="utf-8">
+			<form class="forms-sample" action="<?=site_url('admin/add_ruangan')?>" method="POST" enctype="multipart/form-data" accept-charset="utf-8">
 
 				<div class="modal-header">
 					<h5 class="modal-title" id="exampleModalLabel">Tambah Ruangan Baru</h5>
@@ -40,8 +40,8 @@
 					</div>
 					<div class="form-group">
 						<label for="admin_r">Penanggung Jawab Ruangan (PJ)</label>
-						<input id="nunker" type="text" class="form-control" name="nunker" placeholder="Penanggung Jawab" required> 
-						<input id="kunker" type="hidden" name="kunker_r" />
+						<input id="nunker" type="text" class="form-control" name="nunker_r" placeholder="Penanggung Jawab" required> 
+						<input id="kunker" type="hidden" name="kunker_r" required />
 					</div>
 					<!-- <div class="form-group">
 						<label for="email_r">Email1 PJ</label>
@@ -58,9 +58,9 @@
 
 					<div class="form-group">
 						<label>Foto Ruangan</label>
-						<input type="file" name="img_r" class="file-upload-default">
+						<input type="file" name="img_r" class="file-upload-default" required>
 						<div class="input-group col-xs-12">
-							<input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+							<input type="text" class="form-control file-upload-info" disabled placeholder="Maks. 2Mb" required>
 							<span class="input-group-append">
 								<button class="file-upload-browse btn btn-info" type="button">Upload</button>
 							</span>
@@ -69,8 +69,8 @@
 
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
-					<button type="submit" class="btn btn-success mr-2">Submit</button>
+					<button type="button" class="btn btn-light" data-dismiss="modal">Batal</button>
+					<button type="submit" class="btn btn-success mr-2">Tambah</button>
 				</div>
 			</form>
 
@@ -101,7 +101,7 @@
 		<div class="modal fade" id="detailModal<?=$ruang->id?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
-					<form class="forms-sample" action="<?=site_url('ruangan/store')?>" method="POST" enctype="multipart/form-data" accept-charset="utf-8">
+					<form class="forms-sample" action="<?=site_url('admin/update_ruangan/'. $ruang->id)?>" method="POST" enctype="multipart/form-data" accept-charset="utf-8">
 
 						<div class="modal-header">
 							<h5 class="modal-title" id="exampleModalLabel">Ubah Ruangan <span style="text-decoration: underline;"><?=$ruang->name_r?><span></h5>
@@ -113,24 +113,24 @@
 
 								<div class="form-group">
 									<label for="name_r">Nama Ruangan</label>
-									<input type="text" class="form-control" name="name_r" value="<?=$ruang->name_r?>" placeholder="Name" required> 
+									<input type="text" class="form-control" name="name_r-edit" value="<?=$ruang->name_r?>" placeholder="Name" required> 
 								</div>
 								<div class="form-group">
 									<label for="lt_r">Lantai Ruangan</label>
-									<input type="text" class="form-control" name="lantai_r" value="<?=$ruang->lantai_r?>" placeholder="Lantai" maxlength="1" required> 
+									<input type="text" class="form-control" name="lantai_r-edit" value="<?=$ruang->lantai_r?>" placeholder="Lantai" maxlength="1" required> 
 								</div>
 								<div class="form-group">
 									<label for="kapasitas_r">Kapasitas Ruangan</label>
-									<input type="text" class="form-control" name="kapasitas_r" value="<?=$ruang->kapasitas_r?>" placeholder="Kapasitas Ruangan" required> 
+									<input type="text" class="form-control" name="kapasitas_r-edit" value="<?=$ruang->kapasitas_r?>" placeholder="Kapasitas Ruangan" required> 
 								</div>
 								<div class="form-group">
 									<label for="fasilitas_r">Fasilitas Ruangan</label> 
-									<input class="form-control" name="fasilitas_r" value="<?=$ruang->fasilitas_r?>" placeholder="Fasilitas Ruangan" required/> 
+									<input class="form-control" name="fasilitas_r-edit" value="<?=$ruang->fasilitas_r?>" placeholder="Fasilitas Ruangan" required/> 
 								</div>
 								<div class="form-group">
 									<label for="admin_r">Penanggung Jawab Ruangan (PJ)</label>
-									<input id="nunker-edit" type="text" class="form-control" placeholder="Penanggung Jawab" name="nunker-edit" required> 
-									<input id="kunker-edit" type="hidden" name="kunker_r">
+									<input id="nunker-edit" type="text" class="form-control" placeholder="Penanggung Jawab" name="nunker_r-edit" value="<?=$ruang->nunker_r?>" required> 
+									<input id="kunker-edit" type="hidden" name="kunker_r-edit">
 								</div>
 								<!-- <div class="form-group">
 									<label for="email_r">Email1 PJ</label>
@@ -147,11 +147,11 @@
 
 								<div class="form-group">
 									<label>Foto Ruangan</label>
-									<input type="file" name="img_r" class="file-upload-default">
+									<input type="file" name="img_r-edit" class="file-upload-default">
 									<br>
 									<img src="<?php echo base_url("uploaded/images/ruangan/" . $ruang->img_r); ?>" style="height: 200px; border-radius: 4px; margin: 5px auto;">
 									<div class="input-group col-xs-12">
-										<input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+										<input type="text" class="form-control file-upload-info" disabled placeholder="Maks. 2Mb">
 										<span class="input-group-append">
 											<button class="file-upload-browse btn btn-info" type="button">Upload</button>
 										</span>
